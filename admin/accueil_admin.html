@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil | Admin ALB</title>
+    <link rel="stylesheet" href="/public/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ALB Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Evenements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">L'équipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Partenaires institutionnelles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Partenaires associatifs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ateliers</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html.html" target="_blank" title="le site"><i
+                                class="bi bi-eye"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exit.html" title="Se déconnecter"><i
+                                class="bi bi-box-arrow-right"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid bg-success text-white text-center py-2">
+        L'image a bien été ajouté
+    </div>
+    <div class="container-fluid bg-success text-white text-center py-2">
+        La news a bien été ajouté
+    </div>
+    <div class="container my-5">
+        <h1 class="title mb-4">
+            Les images du bandeau
+        </h1>
+        <div class="ajouter mb-3">
+            <button type="submit" class="btn btn-success">Ajouter une image</button>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 my-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-stage_art.jpg" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Stage Arts">
+                    <div class="card-body">
+                        <h5 class="card-title">Stage vacances arts</h5>
+                        <p class="card-text">du 19 au 23 Février 2024</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-nougaro.png" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Soirée Nougaro">
+                    <div class="card-body">
+                        <h5 class="card-title">Soirée Nougaro</h5>
+                        <p class="card-text">Le Mercredi 6 Mars, Le Cerisier et nous, </p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-massage_bebe.jpg" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Massages bébé">
+                    <div class="card-body">
+                        <h5 class="card-title">Massages bébé</h5>
+                        <p class="card-text">Avec le Centres d'animation de Bordeaux de Bacalan,</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-vide_grenier_2024.jpg" class="card-img-top object-fit-cover"
+                        style="height: 400px;" alt="Vide grenier 2024">
+                    <div class="card-body">
+                        <h5 class="card-title">Vide granier 2024</h5>
+                        <p class="card-text">Avec la Régie de Quartier Habiter Bacalan,</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-stage_cinema.jpg" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Stage Cinéma">
+                    <div class="card-body">
+                        <h5 class="card-title">Stage vacances cinéma</h5>
+                        <p class="card-text">du 15 au 19 Avril 2024</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-concert_rai.png" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Concert Raï">
+                    <div class="card-body">
+                        <h5 class="card-title">Concert Raï</h5>
+                        <p class="card-text">Le Vendredi 12 Avril 2024,</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/aff-cap_ferret.jpg" class="card-img-top object-fit-cover" style="height: 400px;"
+                        alt="Visite Cap Ferret">
+                    <div class="card-body">
+                        <h5 class="card-title">Visite Cap Ferret</h5>
+                        <p class="card-text">Journée organisée par l'Amicale Laïque de Bacalan et HTBA</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/Image/invitation-comite_evs.jpg" class="card-img-top object-fit-cover"
+                        style="height: 400px;" alt="Invitation EVS">
+                    <div class="card-body">
+                        <h5 class="card-title">Invitation EVS</h5>
+                        <p class="card-text">Nous souhaitons vous voir le plus nombreux possible !</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-4 text-center bloc-pagination mt-5 py-5">
+            <nav aria-label="Pagination des citations">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1" aria-label="Début">
+                            <i class="bi bi-chevron-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=2" aria-label="Page précédente">
+                            <i class="bi bi-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">3</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page=4">4</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=4" aria-label="Page suivante">
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=64" aria-label="Fin">
+                            <i class="bi bi-chevron-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="modal_delete" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-4">Supprimer un auteur</h2>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span>Voulez-vous vraiment supprimer l'image ?</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h1 class="title mb-4">
+            Les news
+        </h1>
+        <div class="ajouter mb-3">
+            <button type="submit" class="btn btn-success">Ajouter une news</button>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 my-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Informations de rentrée</h5>
+                        <p class="card-text">Inscritpions aux ateliers</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Démarches administratives</h5>
+                        <p class="card-text">Nous proposons des rendez-vous individuels</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">NOUVEAU SITE INTERNET !!</h5>
+                        <p class="card-text">Après 13 années de bons et loyaux services,</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i>
+                            Modifier</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#modal_delete"><i class="bi bi-trash"></i>
+                            Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/profil.js"></script>
+<script src="public/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

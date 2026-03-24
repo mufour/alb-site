@@ -1,0 +1,17 @@
+{
+    "name": "raoul/alb",
+    "autoload": {
+        "psr-4": {
+            "Raoul\\Alb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Raoul de Colombel",
+            "email": "raoul.decolombel@yahoo.fr"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.88"
+    }
+}
