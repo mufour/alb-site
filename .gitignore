@@ -1,3 +1,13 @@
+# Maven
+target/
+
+# Database
+*.mv.db
+data/
+
+# IDE
+.vscode/
+*.log
+
 /vendor/
 /bin/
-/target/

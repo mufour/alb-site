@@ -24,5 +24,35 @@ public class Partner {
 
     private Integer displayOrder;
 
-    // getters / setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+    }
+
+    public Integer getDisplayOrder() {
+        return displayOrder;
+    }
+
+    public void setDisplayOrder(Integer displayOrder) {
+        this.displayOrder = displayOrder;
+    }
+
+    public PartnerType getType() {
+        return type;
+    }
+
+    public void setType(PartnerType type) {
+        this.type = type;
+    }
 }
