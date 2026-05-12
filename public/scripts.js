@@ -27,12 +27,36 @@ var closeBtn = document.getElementById("closeBtn");
 openBtn.onclick = openNav;
 closeBtn.onclick = closeNav;
 
-/* Set the width of the side navigation to 250px */
+/* Définir la largueur de la side navigation à 250px */
 function openNav() {
   sidenav.classList.add("active");
 }
 
-/* Set the width of the side navigation to 0 */
+/* Définir la largueur de la side navigation à 0px */
 function closeNav() {
   sidenav.classList.remove("active");
 }
+
+
+/* Formulaire */
+document.getElementById('email').addEventListener('focus', function () {
+            messageElt = document.createElement('div');
+            messageElt.setAttribute('id', 'message');
+            messageElt.textContent = "Un lien d'activation sera envoyé à cette adresse"
+            emailElt.parentNode.insertBefore(messageElt, emailElt.nextSibling);
+        })
+
+        document.getElementById('email').addEventListener('blur', function () {
+            document.getElementById('message').remove();
+        })
+
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (e.target.password.value === e.target.confirmpw.value) {
+                alert("Votre mot de passe est valide, la demande a bien été envoyée");
+            } else {
+                const confirmpwElt = document.querySelector('label[for="confirmpw"]');
+                confirmpwElt.textContent += " - Vos mots de passe ne coïncident pas";
+                confirmpwElt.style.color = "red";
+            }
+        });

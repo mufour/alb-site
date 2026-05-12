@@ -328,7 +328,6 @@ p {
     display: block;
 }
 
-
 .bandef-track:hover {
     animation-play-state: paused;
 }
@@ -354,6 +353,51 @@ p {
     padding: 16px;
     border-radius: 5px;
     margin: 16px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.champs {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.champ {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    margin: 8px 0px 24px 0px;
+    border: 1px solid black;
+}
+
+#textarea {
+    min-height: 92px;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn {
+    width: 75%;
+    min-height: 48px;
+    background-color: #bbce13;
+}
+
+.submit-btn:hover {
+    background-color: #94a30f;
+    color: white;
 }
 
 .ariane {
