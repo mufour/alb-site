@@ -257,9 +257,13 @@ p {
 }
 
 .event-card {
-    width: 100%;
+    width: 97%;
     display: flex;
     justify-content: space-between;
+    background-color: #7db46b;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
 }
 
 .event-content {
@@ -705,6 +709,11 @@ td {
 /* RESPONSIVE TELEPHONE */
 @media only screen and (max-width: 768px) {
 
+
+    #main {
+        max-width: 85%;
+    }
+
     .w-4,
     .w-6-team,
     .w-8-accueil,
@@ -735,7 +744,7 @@ td {
     }
 
     .card {
-        width: 85%;
+        width: 95%;
     }
 
     /* Ajuste l'affichage des cartes */
@@ -751,6 +760,7 @@ td {
     }
 
     /* Pour les images dans les ateliers */
+    .event-img,
     .atelier-content img {
         margin: 20px auto 0 auto;
         width: 100%;
