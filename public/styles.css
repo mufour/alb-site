@@ -10,27 +10,6 @@
     src: url(font/SourceSans3-Regular.ttf);
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-
 /*-------------------------------GENERAL-------------------------------*/
 body {
     width: 100%;
@@ -87,8 +66,10 @@ p {
 
 /* ----- ID ----- */
 #main {
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     margin: auto;
+    padding: 0 16px;
 }
 
 #accueil {
@@ -306,30 +287,50 @@ p {
     background-color: #f8e4c0;
 }
 
+.bandef-container {
+    max-width: 100%;
+}
+
 .bandef {
     overflow: hidden;
-    white-space: nowrap;
-    box-shadow: 5px 5px 5px 5px #c8cd7f;
     border-radius: 5px 5px 5px 5px;
     margin-bottom: 48px;
+    position: relative;
+    background-color: #c8cd7f;
+    padding-top: 16px;
 }
 
 .bandef-track {
-    display: inline-flex;
-    animation: scroll 20s linear infinite;
-    background-color: #c8cd7f;
+    display: flex;
+    width: max-content;
 }
 
 .bandef img {
-    height: 200px;
+    height: 250px;
     width: auto;
-    margin-right: 10px;
+    margin-right: 16px;
     object-fit: contain;
     display: block;
 }
 
-.bandef-track:hover {
-    animation-play-state: paused;
+.bandef-controls {
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.bandef-controls button {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 16px 24px;
+    background-color: brown;
+    text-decoration: none;
+    border-radius: 6px;
+    color: #d3d1d1;
+}
+
+.bandef-controls button:hover {
+    color: orange;
 }
 
 .partner {
@@ -444,8 +445,9 @@ input {
 
 .row {
     width: 100%;
-    margin: auto auto;
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .w-4 {
@@ -598,22 +600,27 @@ td {
 
 .text-accueil a {
     color: #dce18c;
+    font-weight: bold;
 }
 
 .text-amicale a {
     color: #f3b33f;
+    font-weight: bold;
 }
 
 .text-activities a {
     color: #89c575;
+    font-weight: bold;
 }
 
 .text-partners a {
     color: #fa7171;
+    font-weight: bold;
 }
 
 .text-contact a {
     color: #b182c8;
+    font-weight: bold;
 }
 
 /* ---------- MENU SECONDAIRE ---------- */
@@ -696,11 +703,18 @@ td {
 }
 
 /* RESPONSIVE TELEPHONE */
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 768px) {
 
+    .w-4,
+    .w-6-team,
+    .w-8-accueil,
+    .partner,
+    .card-contact,
+    .atelier-day,
     .row {
-        width: 100%;
+        width: 98%;
         display: block;
+        margin-bottom: 20px;
     }
 
     .row>div {
@@ -710,12 +724,72 @@ td {
     .w-4,
     .w-6-team,
     .w-8-accueil,
-    .w-12-content {
+    .w-12-content,
+    .w-12-content-news {
         width: 98%;
         display: block;
     }
 
     .cards {
         display: flex;
+    }
+
+    .card {
+        width: 85%;
+    }
+
+    /* Ajuste l'affichage des cartes */
+    .cards,
+    .footer,
+    .hours,
+    .hours2,
+    .event-card,
+    .atelier-content {
+        flex-direction: column;
+        /* Empile les éléments verticalement */
+        align-items: center;
+    }
+
+    /* Pour les images dans les ateliers */
+    .atelier-content img {
+        margin: 20px auto 0 auto;
+        width: 100%;
+    }
+}
+
+/* --- RESPONSIVE MOBILE & TABLETTE --- */
+@media only screen and (max-width: 992px) {
+
+    /* On passe le menu secondaire en colonne ou on le simplifie */
+    #menu-sec ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    /* Le menu principal s'adapte (si vous n'utilisez pas la navbar Bootstrap) */
+    .header-menu {
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .header-menu li {
+        width: 50%;
+        /* 2 boutons par ligne sur tablette/mobile */
+        padding: 5px 0;
+    }
+
+    /* Les cartes partenaires */
+    .card-partner {
+        width: 100%;
+        /* Pleine largeur */
+        margin: 10px 0;
+        flex-direction: column;
+        /* Image au dessus du texte */
+        text-align: center;
+    }
+
+    .card-partner .partner-img {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 }
