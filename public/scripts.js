@@ -1,17 +1,18 @@
-/* Animation du bandeau d'images de la page d'accueil */
-const track = document.querySelector('.bandef-track');
-const bandef = document.querySelector('.bandef');
+/* -------- Animation du bandeau d'images de la page d'accueil -------- */
 
+const bandef = document.querySelector('.bandef');
 let speed = 1;
 let position = 0;
 let isPaused = false;
 let direction = -1;
 
 /* Dupliquer les images */
+const track = document.querySelector('.bandef-track');
+
+if (track) {
 track.innerHTML += track.innerHTML;
 
 function animate() {
-
     if (!isPaused) {
         position += speed * direction;
         if (Math.abs(position) >= track.scrollWidth / 2) {
@@ -21,7 +22,6 @@ function animate() {
     }
     requestAnimationFrame(animate);
 }
-
 animate();
 
 /* Arrêt défilement hors écran*/
@@ -59,27 +59,35 @@ document.getElementById('speed-down')
     }
 
 });
-
-/* Début de menu burger */
-var sidenav = document.getElementById("mySidenav");
-var openBtn = document.getElementById("openBtn");
-var closeBtn = document.getElementById("closeBtn");
-
-openBtn.onclick = openNav;
-closeBtn.onclick = closeNav;
-
-/* Définir la largueur de la side navigation à 250px */
-function openNav() {
-  sidenav.classList.add("active");
 }
 
-/* Définir la largueur de la side navigation à 0px */
-function closeNav() {
-  sidenav.classList.remove("active");
+/* -------- Menu Burger -------- */
+const burgerBtn = document.getElementById('burger-btn');
+const mainNavLinks = document.getElementById('nav-links');
+const secNav = document.getElementById('menu-amicale');
+
+// Fonction pour basculer l'affichage des deux menus
+function toggleMenus() {
+    mainNavLinks.classList.toggle('open');
+    secNav.classList.toggle('open');
 }
 
+// Écouteur d'événement pour le bouton burger
+burgerBtn.addEventListener('click', toggleMenus);
 
-/* Formulaire */
+// Fermer les menus en cliquant sur un lien
+const mainNavItems = mainNavLinks.querySelectorAll('a');
+mainNavItems.forEach(link => {
+    link.addEventListener('click', toggleMenus);
+});
+
+const secNavItems = secNav.querySelectorAll('a');
+secNavItems.forEach(link => {
+    link.addEventListener('click', toggleMenus);
+});
+
+
+/* -------- Formulaire -------- 
 document.getElementById('email').addEventListener('focus', function () {
             messageElt = document.createElement('div');
             messageElt.setAttribute('id', 'message');
@@ -101,3 +109,4 @@ document.getElementById('email').addEventListener('focus', function () {
                 confirmpwElt.style.color = "red";
             }
         });
+        */

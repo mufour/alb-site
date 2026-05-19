@@ -10,11 +10,11 @@
     src: url(font/SourceSans3-Regular.ttf);
 }
 
-/*-------------------------------GENERAL-------------------------------*/
+/*------------------------------- GENERAL --------------------------------*/
 body {
     width: 100%;
     margin: 0;
-    background-image: url("/Image/background-puzzle.png");
+    background-image: url("/images/background-puzzle.png");
     background-repeat: repeat-y;
     background-position: right;
     font-family: 'SourceSans3-Regular';
@@ -64,7 +64,7 @@ p {
 }
 
 
-/* ----- ID ----- */
+/* -------------------------------- ID --------------------------------*/
 #main {
     max-width: 1200px;
     width: 100%;
@@ -97,18 +97,6 @@ p {
     vertical-align: middle;
 }
 
-#construction {
-    width: 100%;
-    background-color: orange;
-}
-
-#construction img {
-    width: 50%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
-
 #salaries,
 #conseiladmin {
     text-align: center;
@@ -118,8 +106,11 @@ p {
     background-color: #f0b74c;
 }
 
+#textarea {
+    min-height: 92px;
+}
 
-/* ----- CLASS ----- */
+/* -------------------------------- CLASS --------------------------------*/
 .title {
     margin-bottom: 70px;
 }
@@ -163,7 +154,7 @@ p {
     display: flex;
     flex-direction: row;
     width: 45%;
-    background-color: #c85f5f;
+    background-color: #da9090;
     align-items: center;
     justify-content: space-between;
     border-radius: 8px;
@@ -334,7 +325,7 @@ p {
 }
 
 .bandef-controls button:hover {
-    color: orange;
+    color: #D57C24;
 }
 
 .partner {
@@ -360,12 +351,6 @@ p {
     margin: 16px;
 }
 
-form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .champs {
     width: 100%;
     max-width: 600px;
@@ -377,16 +362,18 @@ form {
     width: 100%;
 }
 
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 input {
     width: 100%;
     height: 32px;
     border-radius: 8px;
     margin: 8px 0px 24px 0px;
     border: 1px solid black;
-}
-
-#textarea {
-    min-height: 92px;
 }
 
 .submit {
@@ -444,7 +431,7 @@ input {
 }
 
 .footer a:hover {
-    color: orange;
+    color: #D57C24;
 }
 
 .row {
@@ -454,6 +441,12 @@ input {
     flex-wrap: wrap;
 }
 
+.row2 {
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
 .w-4 {
     width: 33.33%;
     text-align: center;
@@ -461,7 +454,7 @@ input {
 }
 
 .w-6-team {
-    width: 50%;
+    width: 48%;
 }
 
 .w-8-accueil {
@@ -500,7 +493,7 @@ input {
 
 .p-footer {
     color: #d3d1d1;
-    padding: auto;
+    padding: 0;
     vertical-align: bottom;
 }
 
@@ -516,7 +509,7 @@ a:active {
 
 a:hover {
     text-decoration: none;
-    color: orange;
+    color: #D57C24;
 }
 
 a.bouton-picto:link {
@@ -537,7 +530,7 @@ a.bouton-picto:active {
 }
 
 a.bouton-picto:hover {
-    color: orange;
+    color: #D57C24;
     padding: 7px 15px;
     margin-top: 15px;
 }
@@ -548,7 +541,7 @@ a.menufooter:link {
 }
 
 a.menufooter:hover {
-    color: orange;
+    color: #D57C24;
     margin-top: 15px;
 }
 
@@ -564,42 +557,64 @@ td {
 }
 
 /*------------------------------- HEADER --------------------------------*/
-.header {
+
+header {
     width: 100%;
-    margin: 0px;
-    border-bottom: grey solid 2px;
+    background-color: #471414;
 }
 
-.header-menu {
+.menu {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    border-bottom: black solid 1px;
+    min-height: 72px;
+}
+
+.menu a {
     list-style: none;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #D57C24;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-nav {
+    flex: 1;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
-    background-color: #471414;
-    width: 100%;
-    height: 72px;
 }
 
-.header-menu li {
-    flex: 1;
-    text-align: center;
+.nav-links li {
+    list-style: none;}
+
+.logo {
+    margin: 8px;
+    max-width: 96px;
+    display: block;
 }
 
-.header-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 14px 16px;
-    display: inline-block;
-}
-
-.header-menu img {
-    margin-top: 8px;
-}
-
-.header-menu a:hover {
-    color: orange;
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .text-accueil a {
@@ -627,43 +642,26 @@ td {
     font-weight: bold;
 }
 
-/* ---------- MENU SECONDAIRE ---------- */
-#menu-sec {
+/* -------------------------------- MENU SECONDAIRE --------------------------------*/
+
+.sec-nav ul {
     display: flex;
     justify-content: center;
-    /* ✅ centre horizontalement le bloc de sous-menu */
-    background-color: #471414;
-    border-top: 1px solid #442525;
-    height: 32px;
-}
-
-#menu-sec ul {
-    display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    background-color: #471414;
+}
+
+.sec-nav a,
+.sec-nav li {
     list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 40%;
-}
-
-#menu-sec li {
-    text-align: center;
-}
-
-#menu-sec a {
     text-decoration: none;
-    padding: 6px 10px;
-    display: inline-block;
 }
 
-#menu-sec a:hover {
-    color: orange;
+.sec-nav a:hover {
+    color: #D57C24;
 }
 
-/*----------------------------FIN MENU DEROULANT----------------------------*/
-
-/* RESPONSIVE TABLETTE */
+/*-------------------------------- RESPONSIVE TABLETTE --------------------------------*/
 @media only screen and (max-width: 980px) {
 
     .row {
@@ -699,16 +697,15 @@ td {
     }
 
     a.bouton-picto:hover {
-        color: orange;
+        color: #D57C24;
         padding: 5px 10px;
         margin-top: 15px;
         font-size: 10px;
     }
 }
 
-/* RESPONSIVE TELEPHONE */
+/*-------------------------------- RESPONSIVE TELEPHONE --------------------------------*/
 @media only screen and (max-width: 768px) {
-
 
     #main {
         max-width: 85%;
@@ -747,7 +744,6 @@ td {
         width: 95%;
     }
 
-    /* Ajuste l'affichage des cartes */
     .cards,
     .footer,
     .hours,
@@ -755,46 +751,61 @@ td {
     .event-card,
     .atelier-content {
         flex-direction: column;
-        /* Empile les éléments verticalement */
         align-items: center;
     }
 
-    /* Pour les images dans les ateliers */
     .event-img,
     .atelier-content img {
         margin: 20px auto 0 auto;
         width: 100%;
     }
+
+    .menu-container {
+        display: block;
+    }
+
+    .burger-btn {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+    }
+
+    .nav-links,
+    .sec-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #471414;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+    }
+
+    .nav-links.open,
+    .sec-nav.open {
+        display: flex;
+    }
+
+    .logo {
+        display: none;
+    }
 }
 
-/* --- RESPONSIVE MOBILE & TABLETTE --- */
+/* -------------------------------- RESPONSIVE MOBILE & TABLETTE --------------------------------*/
 @media only screen and (max-width: 992px) {
 
-    /* On passe le menu secondaire en colonne ou on le simplifie */
-    #menu-sec ul {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    /* Le menu principal s'adapte (si vous n'utilisez pas la navbar Bootstrap) */
-    .header-menu {
-        height: auto;
-        flex-wrap: wrap;
-    }
-
-    .header-menu li {
-        width: 50%;
-        /* 2 boutons par ligne sur tablette/mobile */
-        padding: 5px 0;
-    }
-
-    /* Les cartes partenaires */
     .card-partner {
         width: 100%;
-        /* Pleine largeur */
         margin: 10px 0;
         flex-direction: column;
-        /* Image au dessus du texte */
         text-align: center;
     }
 
