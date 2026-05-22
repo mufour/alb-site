@@ -100,8 +100,8 @@ p {
 #salaries,
 #conseiladmin {
     text-align: center;
-    padding: 0 16px;
-    margin: 0 8px;
+    padding: 16px;
+    margin: 8px;
     border-radius: 10px;
     background-color: #f0b74c;
 }
@@ -136,8 +136,12 @@ p {
     border: #000 1px solid;
     background-color: #cab5d3;
     padding: 16px;
-    margin-left: 16px;
+    margin: 16px;
     border-radius: 8px;
+}
+
+.card-contact img {
+    vertical-align: center;
 }
 
 .card-contact2 {
@@ -240,6 +244,10 @@ p {
 .side-img {
     max-width: 300px;
     margin-bottom: 32px;
+}
+
+.side-side-img {
+    max-width: 100%;
 }
 
 .event-img {
@@ -553,7 +561,6 @@ table {
 
 td {
     text-align: left;
-    padding-left: 16px;
 }
 
 /*------------------------------- HEADER --------------------------------*/
@@ -602,10 +609,11 @@ header {
 }
 
 .nav-links li {
-    list-style: none;}
+    list-style: none;
+}
 
 .logo {
-    margin: 8px;
+    margin: 12px;
     max-width: 96px;
     display: block;
 }
@@ -642,6 +650,11 @@ header {
     font-weight: bold;
 }
 
+.nav-links a,
+.sec-nav a {
+    padding: 0 48px;
+}
+
 /* -------------------------------- MENU SECONDAIRE --------------------------------*/
 
 .sec-nav ul {
@@ -663,6 +676,10 @@ header {
 
 /*-------------------------------- RESPONSIVE TABLETTE --------------------------------*/
 @media only screen and (max-width: 980px) {
+
+    #main {
+        width: auto;
+    }
 
     .row {
         width: 100%;
@@ -702,38 +719,42 @@ header {
         margin-top: 15px;
         font-size: 10px;
     }
+
+    iframe {
+        width: 90%;
+    }
+
+    .card-admin-nordv {
+        width: 90%;
+    }
+
+    .card-admin-rdv {
+        width: 90%;
+    }
 }
 
 /*-------------------------------- RESPONSIVE TELEPHONE --------------------------------*/
 @media only screen and (max-width: 768px) {
 
     #main {
-        max-width: 85%;
+        max-width: 90%;
     }
 
+    .row,
     .w-4,
-    .w-6-team,
     .w-8-accueil,
     .partner,
     .card-contact,
     .atelier-day,
-    .row {
-        width: 98%;
-        display: block;
-        margin-bottom: 20px;
-    }
-
-    .row>div {
-        margin: 1%;
-    }
-
-    .w-4,
-    .w-6-team,
-    .w-8-accueil,
     .w-12-content,
     .w-12-content-news {
         width: 98%;
         display: block;
+        margin: 8px 0px;
+    }
+
+    .row>div {
+        margin: 1%;
     }
 
     .cards {
@@ -744,6 +765,9 @@ header {
         width: 95%;
     }
 
+    .atelier {
+        margin: 16px 0px;
+    }
     .cards,
     .footer,
     .hours,
@@ -768,13 +792,19 @@ header {
         display: flex;
         justify-content: end;
         width: 100%;
+        padding: 13px;
     }
 
-    .nav-links,
-    .sec-nav {
-        display: none;
+    .nav-links {
+        display: flex;
         flex-direction: column;
-        width: 100%;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.5s ease,
+            opacity 0.4s ease;
+        width: auto;
         background-color: #471414;
     }
 
@@ -784,23 +814,73 @@ header {
         border-bottom: 1px solid black;
     }
 
-    .nav-links a {
+    .sec-nav {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.5s ease,
+            opacity 0.4s ease;
+    }
+
+    .nav-links a,
+    .sec-nav a {
         display: block;
         width: 100%;
+        padding: 2px 0px;
     }
 
     .nav-links.open,
     .sec-nav.open {
-        display: flex;
+        max-height: 500px;
+        opacity: 1;
     }
 
-    .logo {
-        display: none;
+    .sec-nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sec-nav-links li {
+        width: 100%;
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+
+    .sec-nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sec-nav li {
+        width: 100%;
+        text-align: center;
+        background-color: #5c1a1a;
+    }
+
+    .sec-nav-links li:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 16px;
+        left: 12px;
+    }
+
+    hr {
+        margin: 0;
     }
 }
 
 /* -------------------------------- RESPONSIVE MOBILE & TABLETTE --------------------------------*/
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 980px) {
 
     .card-partner {
         width: 100%;
@@ -812,5 +892,25 @@ header {
     .card-partner .partner-img {
         margin-right: 0;
         margin-bottom: 10px;
+    }
+
+    .p-footer {
+        margin: 8px;
+        text-align: center;
+    }
+
+    #prices,
+    #tarification {
+        width: 90%;
+    }
+
+    .row2 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .w-11-content img {
+        width: 100%;
     }
 }
