@@ -329,6 +329,7 @@ p {
     display: flex;
     justify-content: center;
 }
+
 /*
 .bandef-controls button {
     cursor: pointer;
@@ -384,7 +385,8 @@ form {
     justify-content: center;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     height: 32px;
     border-radius: 8px;
@@ -420,6 +422,7 @@ input, textarea {
 .ariane p {
     width: 1200px;
     margin: 0;
+    text-align: center;
 }
 
 .ariane a {
@@ -581,6 +584,10 @@ table {
 
 td {
     text-align: left;
+}
+
+.tox-tinymce {
+    margin: 8px 0px 24px 0px;
 }
 
 /* ------------------------------- HEADER -------------------------------- */
@@ -984,5 +991,13 @@ header {
 
     .w-11-content img {
         width: 100%;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .ariane {
+        height: auto;
     }
 }
