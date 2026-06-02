@@ -10,7 +10,7 @@
     src: url(font/SourceSans3-Regular.ttf);
 }
 
-/*------------------------------- GENERAL --------------------------------*/
+/* ------------------------------- GENERAL -------------------------------- */
 body {
     width: 100%;
     margin: 0;
@@ -64,7 +64,7 @@ p {
 }
 
 
-/* -------------------------------- ID --------------------------------*/
+/* -------------------------------- ID -------------------------------- */
 #main {
     max-width: 1200px;
     width: 100%;
@@ -106,11 +106,19 @@ p {
     background-color: #f0b74c;
 }
 
-#textarea {
-    min-height: 92px;
+#message {
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    margin: 8px 0px 24px 0px;
+    border: 1px solid black;
 }
 
-/* -------------------------------- CLASS --------------------------------*/
+#close-btn.hover {
+    min-height: 100px;
+}
+
+/* -------------------------------- CLASS -------------------------------- */
 .title {
     margin-bottom: 70px;
 }
@@ -158,7 +166,7 @@ p {
     display: flex;
     flex-direction: row;
     width: 45%;
-    background-color: #da9090;
+    background-color: #f18f8f;
     align-items: center;
     justify-content: space-between;
     border-radius: 8px;
@@ -321,7 +329,7 @@ p {
     display: flex;
     justify-content: center;
 }
-
+/*
 .bandef-controls button {
     cursor: pointer;
     padding: 8px 12px;
@@ -335,7 +343,7 @@ p {
 .bandef-controls button:hover {
     color: #D57C24;
 }
-
+*/
 .partner {
     width: 30%;
     padding: 16px;
@@ -376,7 +384,7 @@ form {
     justify-content: center;
 }
 
-input {
+input, textarea {
     width: 100%;
     height: 32px;
     border-radius: 8px;
@@ -520,6 +528,18 @@ a:hover {
     color: #D57C24;
 }
 
+.bouton-picto {
+    cursor: pointer;
+    min-width: 100px;
+    text-decoration: none;
+    text-align: center;
+    color: #d3d1d1;
+    padding: 7px 15px;
+    background-color: brown;
+    border-radius: 5px;
+    margin: 16px;
+}
+
 a.bouton-picto:link {
     text-decoration: none;
     color: #d3d1d1;
@@ -563,7 +583,7 @@ td {
     text-align: left;
 }
 
-/*------------------------------- HEADER --------------------------------*/
+/* ------------------------------- HEADER -------------------------------- */
 
 header {
     width: 100%;
@@ -655,13 +675,14 @@ header {
     padding: 0 48px;
 }
 
-/* -------------------------------- MENU SECONDAIRE --------------------------------*/
+/* -------------------------------- MENU SECONDAIRE -------------------------------- */
 
 .sec-nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #471414;
+    margin: 0;
 }
 
 .sec-nav a,
@@ -674,7 +695,57 @@ header {
     color: #D57C24;
 }
 
-/*-------------------------------- RESPONSIVE TABLETTE --------------------------------*/
+
+/* -------------------------------- MODAL -------------------------------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    z-index: 9999;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #c4accf;
+    padding: 32px;
+    border-radius: 8px;
+    max-width: 700px;
+    width: 80%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 20px #69457c;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.open .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* -------------------------------- RESPONSIVE TABLETTE -------------------------------- */
 @media only screen and (max-width: 980px) {
 
     #main {
@@ -768,6 +839,7 @@ header {
     .atelier {
         margin: 16px 0px;
     }
+
     .cards,
     .footer,
     .hours,

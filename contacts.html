@@ -53,7 +53,7 @@
                     </div>
                     <div class="champ">
                         <label for="message">Votre message | Obligatoire</label><br>
-                        <input type="textarea" name="textarea" id="textarea" required>
+                        <textarea name="message" id="message" required></textarea>
                     </div>
                     <div class="submit">
                         <input type="submit" value="Envoyer" class="submit-btn">
@@ -66,9 +66,9 @@
             <hr>
         </div>
         <div class="cards">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5654.842477854241!2d-0.5487180238819056!3d44.87407587261905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5528e9b85ffa79%3A0x65801ba846a73165!2sAmicale%20La%C3%AFque%20de%20Bacalan!5e0!3m2!1sfr!2sfr!4v1754163046016!5m2!1sfr!2sfr"
-                    width="800" height="610" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5654.842477854241!2d-0.5487180238819056!3d44.87407587261905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5528e9b85ffa79%3A0x65801ba846a73165!2sAmicale%20La%C3%AFque%20de%20Bacalan!5e0!3m2!1sfr!2sfr!4v1754163046016!5m2!1sfr!2sfr"
+                width="800" height="610" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="cards">
             <div class="card-contact">
@@ -149,6 +149,16 @@
             </p>
         </div>
     </footer>
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <img src="images/x-circle.svg" alt="Bouton fermeture" width="32px" height="32px" id="close-btn">
+            </button>
+            <h2>Message envoyé</h2>
+            <p>Merci pour votre message.</p>
+            <p>Nous vous répondrons dès que possible.</p>
+        </div>
+    </div>
 </body>
 
 </html>

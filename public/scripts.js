@@ -61,24 +61,21 @@ if (track) {
 /* ---------------- Menu Burger ---------------- */
 const burgerBtn = document.getElementById('burger-btn');
 const mainNavLinks = document.getElementById('nav-links');
-const secNav = document.getElementById('menu-amicale');
+const submenu = document.querySelector('.submenu');
 
-if (burgerBtn && mainNavLinks && secNav) {
+if (burgerBtn && mainNavLinks && submenu) {
     // Fonction pour basculer l'affichage des deux menus
     function toggleMenus() {
         mainNavLinks.classList.toggle('open');
-        secNav.classList.toggle('open');
+        submenu.classList.toggle('open');
     }
-
     // Écouteur d'événement pour le bouton burger
     burgerBtn.addEventListener('click', toggleMenus);
-
     // Fermer les menus en cliquant sur un lien
     const mainNavItems = mainNavLinks.querySelectorAll('a');
     mainNavItems.forEach(link => {
         link.addEventListener('click', toggleMenus);
     });
-
     const secNavItems = secNav.querySelectorAll('a');
     secNavItems.forEach(link => {
         link.addEventListener('click', toggleMenus);
@@ -86,16 +83,69 @@ if (burgerBtn && mainNavLinks && secNav) {
 }
 
 /* ---------------- Formulaire ---------------- */
-const form = document.querySelector('form');
+
+/* ---------------- Message au clic du champ e-mail ----------------*/
+/*
+
 const emailInput = document.getElementById('email');
 
 if (form && emailInput) {
-    document.getElementById('email').addEventListener('focus', function () {
-        const messageElt = document.createElement('div'); messageElt.setAttribute('id', 'message');
-        messageElt.textContent = "Un lien d'activation sera envoyé à cette adresse"
-    })
 
-    document.getElementById('email').addEventListener('blur', function () {
-        document.getElementById('message').remove();
-    })
+    emailInput.addEventListener('focus', () => {
+        if (!document.getElementById('message-info')) {
+            const messageElt = document.createElement('div');
+            messageElt.id = 'message-info';
+            messageElt.textContent =
+                "Nous utiliserons cette adresse pour vous répondre.";
+            emailInput.parentNode.insertBefore(
+                messageElt,
+                emailInput.nextSibling
+            );
+        }
+    });
+
+    emailInput.addEventListener('blur', () => {
+        const messageElt =
+            document.getElementById('message-info');
+        if (messageElt) {
+            messageElt.remove();
+        }
+    });
+
+}
+*/
+
+/* ---------------- Modal ---------------- */
+
+const form = document.querySelector('form');
+const modal = document.getElementById('contact-modal');
+const modalClose = document.getElementById('modal-close');
+
+if (form && modal && modalClose) {
+    // Ouverture après validation du formulaire
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        modal.classList.add('open');
+        form.reset();
+    });
+    // Fermeture avec le btn-icon
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('open');
+    });
+
+    // Fermeture clic hors modal
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('open');
+        }
+    });
+    // Fermeture avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+        if (
+            e.key === 'Escape' &&
+            modal.classList.contains('open')
+        ) {
+            modal.classList.remove('open');
+        }
+    });
 }
