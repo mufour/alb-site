@@ -111,7 +111,7 @@
             <div class="w-4">
                 <h4>Réunion du comité</h4>
                 <a href="http://www.amicalebacalan.com/images/comite_19130523_big.jpg"><img
-                        src="images/comite_19130523_big.jpg" alt="compte-rendu-comite2"
+                        src="images/comite_19130523_big.jpg" alt="compte-rendu-comite"
                         style="max-width: 90%; height: auto; display: block;"></a>
             </div>
         </div>

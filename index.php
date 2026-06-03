@@ -143,11 +143,11 @@
         <div class="w-12-content-news">
             <div class="text">
                 <h3>Informations de rentrée</h3>
-                <h5>Pré-inscriptions aux ateliers</h5>
+                <h4>Pré-inscriptions aux ateliers</h4>
                 <p>Pour tous les ateliers, vous pouvez vous inscrire tout au long de l’année, il reste des places à la
                     guitare, éveil musical, et à la sculpture.</p>
                 <br>
-                <h5>Préinscriptions à l'Accompagnement à la Scolarité</h5>
+                <h4>Préinscriptions à l'Accompagnement à la Scolarité</h4>
                 <p>Vous pouvez toujours vous pré-inscrire à l’accompagnement à la scolarité par téléphone ou par mail
                     sur
                     les 4 écoles (Achard, Anne Sylvestre, Modeste Testa).

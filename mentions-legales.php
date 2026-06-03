@@ -56,7 +56,7 @@
                 <p>Développement web : Raoul de Colombel</p>
                 <p>Contact : raoul.decolombel@yahoo.fr</p>
                 <p>Année de création : 2025</p>
-                <h4></h4>
+                <br>
                 <h4>Mise à jour et maintenance</h4>
                 <p> Thomas Briolais</p>
             </div>
