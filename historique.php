@@ -27,8 +27,9 @@
         <div>
             <h3>L'histoire de l'Amicale</h3>
             <hr>
+            <br>
         </div>
-        <div class="row">
+        <div class="row-amicale">
             <div class="w-8-accueil">
                 <h4>Premiers pas</h4>
                 <div class="text">
@@ -61,7 +62,7 @@
                         style="max-width: 90%; height: auto; display: block;"></a>
             </div>
         </div>
-        <div class="row">
+        <div class="row-amicale">
             <div class="w-8-accueil">
                 <h4>Début du 20ème siècle</h4>
                 <div class="text">
@@ -82,7 +83,7 @@
                         style="max-width: 90%; height: auto; display: block;"></a>
             </div>
         </div>
-        <div class="row">
+        <div class="row-amicale">
             <div class="w-8-accueil">
                 <h4>Guerre et après guerre</h4>
                 <div class="text">
@@ -115,7 +116,7 @@
                         style="max-width: 90%; height: auto; display: block;"></a>
             </div>
         </div>
-        <div class="row">
+        <div class="row-amicale">
             <div class="w-8-accueil">
                 <h4>Modernisation de l'Amicales</h4>
                 <div class="text">

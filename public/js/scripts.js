@@ -75,18 +75,91 @@ if (burgerBtn && mainNavLinks && submenu) {
     mainNavItems.forEach(link => {
         link.addEventListener('click', toggleMenus);
     });
-    const secNavItems = secNav.querySelectorAll('a');
-    secNavItems.forEach(link => {
+    const submenuItems = submenu.querySelectorAll('a');
+    submenuItems.forEach(link => {
         link.addEventListener('click', toggleMenus);
     });
 }
 
+/* ---------------- Modal aide administrative ---------------- */
+const demarches = {
+    ameli: [
+        "Créer un compte ameli",
+        "Faire une demande de carte vitale",
+        "Consulter ses remboursements"
+    ],
+    caf: [
+        "Faire une déclaration trimestrielle",
+        "Ecrire un mail concernant son dossier",
+        "Faire une demande de prime d'activité",
+        "Déclarer sa situation"
+    ],
+    msa: [
+        "Créer son compte MSA",
+        "Consulter ses droits",
+        "Imprimer une attestation"
+    ],
+    urssaf: [
+        "Déclarer et payer",
+        "Créer son autoentreprise"
+    ],
+    francetravail: [
+        "S'actualiser",
+        "Transmettre ses documents",
+        "Ecrire un message à son conseiller"
+    ],
+    carsat: [
+        "Transmettre ses documents",
+        "Faire une demande de retraite"
+    ],
+    mdph: [
+        "Ordonner ses documents",
+        "Faire un renouvellement de droit"
+    ],
+    prefecture: [
+        "Ecrire un mail",
+        ""
+    ],
+    tbm: [
+        "Demander ue tarification solidaire",
+        "Contacter un conseiller téléphonique",
+        "Ajouter un ayant droit"
+    ]
+}
+const logos = document.querySelectorAll('#logos img');
+const modalHelp = document.getElementById('aide-modal');
+
+if (demarches && logos && modalHelp) {
+    logos.forEach(img => {
+        img.addEventListener('click', () =>
+            modalHelp.classList.add('open')
+        )
+    })
+    modalHelp.addEventListener('click', (e) => {
+        if (e.target === modalHelp) {
+            modalHelp.classList.remove('open');
+        }
+    });
+};
+
+/* ---------------- Filtre recherche ---------------- */
+
+const card = document.querySelectorAll('.card-partner');
+const filtre = document.getElementById('partner-filter')
+
+filtre.addEventListener('input', () => {
+    const recherche = filtre.value.toLowerCase();
+    card.forEach(card => {
+        const nom = card.querySelector('h4').textContent.toLowerCase();
+        const resultat = nom.includes(recherche);
+        card.style.display = resultat ? "" : "none";
+    })
+})
+
 /* ---------------- Formulaire ---------------- */
 
 /* ---------------- Message au clic du champ e-mail ----------------*/
-/*
-
-const emailInput = document.getElementById('email');
+/*const emailInput = document.getElementById('email');
 
 if (form && emailInput) {
 
@@ -111,10 +184,9 @@ if (form && emailInput) {
         }
     });
 
-}
-*/
+}*/
 
-/* ---------------- Modal ---------------- */
+/* ---------------- Modal formulaire ---------------- */
 const form = document.querySelector('form');
 const modal = document.getElementById('contact-modal');
 const modalClose = document.getElementById('modal-close');

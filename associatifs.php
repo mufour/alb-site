@@ -29,6 +29,15 @@
             <hr>
         </div>
         <div class="row">
+            <div class="partner-search">
+                <label for="partner-filter"> Rechercher un partenaire :</label>
+                <input
+                    type="text"
+                    id="partner-filter"
+                    placeholder=" Nom du partenaire ...">
+            </div>
+        </div>
+        <div class="row">
             <div class="card-partner">
                 <div class="partner">
                     <h4>ADIQ de Bacalan</h4> Association de Défense des Intérêts du Quartier

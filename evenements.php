@@ -30,7 +30,19 @@
         </div>
         <div class="title">
             <h4>Evenements à venir</h4>
-            <p>Pas d'évènement prévu pour le moment</p>
+        </div>
+                <div class="event-card">
+            <div class="event-content">
+                <h5>Gala 2026</h5>
+                <p>Comme chaque année, l'Amicale Laïque de Bacalan organise son Gala !</p>
+                <p>La fin d'année scolaire approche, période de pause pour nos ateliers artistiques, c'est donc le moment pour nous de vous convier à venir découvrir ce que les jeunes et moins jeunes ont travaillé tout au long de l'année.</p>
+                <p>Une fois de plus, nous nous retrouverons à la Salle Point du Jour / Pierre Tachou le 13 Juin 2026 à partir de 19h.</p>
+                <p>Vous y découvrirez un spectacle qui reprend les ateliers de Danses, Piano, Hip-Hop et Guitare.</p>
+            </div>
+            <div class="event-img"><a href="https://www.amicalebacalan.com/images/aff_gala2026.jpg"><img
+                        src="images/aff-gala2026.jpg" alt="Gala 2026" height="300" width="200"
+                        class="side-img"></a>
+            </div>
         </div>
         <div>
             <h4>Evenements passées</h4>
@@ -60,7 +72,7 @@
             </div>
             <div class="event-img">
                 <a href="https://www.amicalebacalan.com/images/aff-06-mars-2026.jpg"><img
-                        src="/images/aff-prog-06-mars-2026" alt="soirée soutien" height="300" width="200"
+                        src="/images/aff-prog-06-mars-2026.jpg" alt="soirée soutien" height="300" width="200"
                         class="side-img"></a>
             </div>
         </div>

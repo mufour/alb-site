@@ -118,6 +118,20 @@ p {
     min-height: 100px;
 }
 
+#rofl {
+    justify-content: space-around;
+}
+
+#logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    background-color: #77aa65;
+    border: #f0b74c 2px solid;
+    border-radius: 16px;
+}
+
 /* -------------------------------- CLASS -------------------------------- */
 .title {
     margin-bottom: 70px;
@@ -281,7 +295,7 @@ p {
 .card-admin-nordv {
     width: 45%;
     height: auto;
-    margin: 10px;
+    margin: 32px 8px;
     padding: 16px;
     border: #8d2c2c 2px solid;
     border-radius: 5px;
@@ -292,10 +306,40 @@ p {
     width: 45%;
     height: auto;
     padding: 16px;
-    margin: 10px;
+    margin: 32px 8px;
     border: #67905e 2px solid;
     border-radius: 5px;
     background-color: #f8e4c0;
+}
+
+.bandeau {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+}
+
+.plz p {
+    margin: 0px;
+}
+
+.admin_logo {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.admin_logo img {
+    height: 100px;
+    width: auto;
+    margin: 32px;
+    cursor: pointer;
 }
 
 .bandef-container {
@@ -460,6 +504,16 @@ textarea {
     flex-wrap: wrap;
 }
 
+.row-amicale {
+    width: 100%;
+    margin: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f5bd55;
+    border-radius: 8px;
+    padding: 8px;
+}
+
 .row2 {
     width: 100%;
     margin: auto;
@@ -467,9 +521,14 @@ textarea {
 }
 
 .w-4 {
-    width: 33.33%;
+    width: 32%;
     text-align: center;
     padding-top: 24px;
+    margin: 8px;
+}
+
+.w-4 img {
+    margin: auto;
 }
 
 .w-6-team {
@@ -477,8 +536,9 @@ textarea {
 }
 
 .w-8-accueil {
-    width: 66.66%;
+    width: 64%;
     white-space: normal;
+    padding: 8px;
 }
 
 .w-11-content {
@@ -818,7 +878,17 @@ header {
         max-width: 90%;
     }
 
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2,
+    h3 {
+        font-size: 1rem;
+    }
+
     .row,
+    .row-amicale,
     .w-4,
     .w-8-accueil,
     .partner,
@@ -841,6 +911,20 @@ header {
 
     .card {
         width: 95%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .card img {
+        margin: 8px;
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .card p {
+        margin: 8px 0px;
+        font-size: 14px;
     }
 
     .atelier {
@@ -855,6 +939,11 @@ header {
     .atelier-content {
         flex-direction: column;
         align-items: center;
+    }
+
+    .event-card {
+        padding: 8px;
+        margin: 8px;
     }
 
     .event-img,
@@ -956,6 +1045,14 @@ header {
     hr {
         margin: 0;
     }
+
+    .bouton-picto {
+        min-width: 60px;
+    }
+
+    .p-footer {
+        font-size: 0.7rem;
+    }
 }
 
 /* -------------------------------- RESPONSIVE MOBILE & TABLETTE --------------------------------*/
@@ -978,11 +1075,6 @@ header {
         text-align: center;
     }
 
-    #prices,
-    #tarification {
-        width: 90%;
-    }
-
     .row2 {
         flex-direction: column;
         justify-content: center;
@@ -999,5 +1091,26 @@ header {
 
     .ariane {
         height: auto;
+    }
+
+    .admin_logo {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #prices,
+    #tarification {
+        width: 90%;
+    }
+
+    #logos {
+        justify-content: center;
+        margin: auto;
+    }
+
+    #logos h4,
+    h5 {
+        margin: 16px;
     }
 }
