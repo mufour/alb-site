@@ -339,7 +339,7 @@ p {
     height: 100px;
     width: auto;
     margin: 32px;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .bandef-container {

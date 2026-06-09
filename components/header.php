@@ -11,14 +11,13 @@
                 <nav class="main-nav">
                     <ul class="nav-links" id="nav-links">
                         <li class="text-accueil"><a href="https://www.amicalebacalan.com/">Accueil</a></li>
-                        <li class="text-amicale"><a href="http://www.amicalebacalan.com/presentation.html">L'Amicale</a>
+                        <li class="text-amicale"><a href="/presentation">L'Amicale</a>
                         </li>
-                        <li class="text-activities"><a href="http://www.amicalebacalan.com/ateliers.html">Activités</a>
+                        <li class="text-activities"><a href="/ateliers">Activités</a>
                         </li>
-                        <li class="text-partners"><a
-                                href="http://www.amicalebacalan.com/associatif.html">Partenaires</a>
+                        <li class="text-partners"><a href="/associatifs">Partenaires</a>
                         </li>
-                        <li class="text-contact"><a href="http://www.amicalebacalan.com/contacts.html">Contact</a></li>
+                        <li class="text-contact"><a href="/contacts">Contact</a></li>
                     </ul>
                 </nav>
             </div>

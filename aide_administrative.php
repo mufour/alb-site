@@ -99,12 +99,12 @@
                 <img data-service="prefecture" src="images/logo_aide_prefecture.png" alt="logo préfecture gironde">
                 <img data-service="tbm" src="images/logo_aide_tbm.png" alt="logo tbm">
             </div>
-            <h5>Cliquez sur les logos pour consulter des exemples de démarches à faire ensemble</h5>
+            <!--<h5>Cliquez sur les logos pour consulter des exemples de démarches à faire ensemble</h5>-->
         </div>
         <div class="cards">
             <div class="card">
                 <br><img src="images/picto_atelier.png" width="100" height="100" alt="picto_atelier">
-                <p><a class="bouton-picto" href="http://www.amicalebacalan.com/ateliers.html">ATELIERS</a>
+                <p><a class="bouton-picto" href="/ateliers">ATELIERS</a>
                 </p>
                 <p>Culturels<br>Sportifs<br>Musicaux</p>
             </div>
@@ -112,14 +112,14 @@
                 <br><img src="images/chaise-et-table.png" width="100" height="100"
                     alt="picto_atelier_scolaire">
                 <p><a class="bouton-picto"
-                        href="https://www.amicalebacalan.com/etablissements.html">ACTIONS
+                        href="/etablissements">ACTIONS
                         SCOLAIRES
                     </a></p>
                 <p>Collège Blanqui<br>Ecoles</p>
             </div>
             <div class="card">
                 <br><img src="images/fichier-et-dossier.png" width="100" height="100" alt="pico_aide_admin">
-                <p><a class="bouton-picto" href="https://www.amicalebacalan.com/aide_administrative.html">AIDE
+                <p><a class="bouton-picto" href="/aide_administrative">AIDE
                         ADMINISTRATIVE</a></p>
                 <p>Sur rendez-vous<br>Sans rendez-vous</p>
             </div>

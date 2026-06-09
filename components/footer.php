@@ -1,8 +1,8 @@
 <footer class="footer">
     <div class="footer">
         <p class="p-footer"> 05 56 50 85 60 | amicalebacalan@free.fr<br>Informations légales : <a
-                href="http://www.amicalebacalan.com/plan_site.html">Plan de site</a> | <a
-                href="http://www.amicalebacalan.com/mentions_legales.html">Mentions légales</a></p>
+                href="/plan_site">Plan de site</a> | <a
+                href="/mentions_legales">Mentions légales</a></p>
     </div>
     <hr>
     <div class="footer">

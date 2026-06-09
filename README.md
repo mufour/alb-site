@@ -2,7 +2,7 @@
 
 Site web développé dans le cadre de ma montée en compétences en développement web, avec pour objectif de concevoir une interface moderne, responsive et maintenable.
 Ce site est celui de l'association dans laquelle j'ai travaillé avant de me reconvertir en tant que développeur.
-J'ai commencé à développer le site avant mon entrée en formation DWWM, un peu pendant.
+J'ai commencé à développer le site avant mon entrée en formation DWWM, un peu pendant, et désormais après, pour ajouter de l'interactivité.
 
 ## 📋 Description
 
@@ -48,7 +48,7 @@ cd alb-site
 Ouvrir simplement le fichier :
 
 bash
-index.html
+index.php
 
 ou utiliser un serveur local (recommandé) 
 
@@ -58,10 +58,13 @@ ou visiter le site :) https://www.amicalebacalan.com/
 
 bash
 alb-site/
-├── index.html
-├── css/
-├── js/
-├── assets/
+├── index.php
+├── components
+├── images
+├── public
+    ├── js
+    ├── font
+    └── styles.css
 └── README.md
 
 
@@ -80,7 +83,6 @@ Ce projet m’a permis de :
 * ajout d’un framework (Bootstrap, Tailwind…)
 * optimisation SEO
 * amélioration des performances
-* ajout d’animations
 * ajout d'un backend pour gérer la base de données
 * ajout d'un back-office pour laisser la gestion de l'administration du site par l'association
 

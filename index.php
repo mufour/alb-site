@@ -163,8 +163,8 @@
                 <p>Créé de toute pièce par Jean-Pierre Vanvynck en 2012, notre site avait besoin d'une refonte pour être
                     plus proche de nos missions actuelles, avec une touche de nouveauté et modernité.</p>
                 <p>Vous pourrez y retrouver en bas de page nos 3 principales activités, à savoir les <a
-                        href="/ateliers.html">Ateliers</a>, <a href="/actions_scolaires/college_blanqui.html">Actions
-                        scolaires</a> et l'<a href="/aide_administrative.html">Aide
+                        href="/ateliers">Ateliers</a>, <a href="/actions_scolaires/college_blanqui">Actions
+                        scolaires</a> et l'<a href="/aide_administrative">Aide
                         Administrative</a>.</p>
                 <p>Toutes nos actualités seront réunis sur cette page d'accueil, que vous pourrez également
                     consulter
@@ -182,7 +182,7 @@
                     pouvoir réserver un créneau.</p>
                 <p>Il existe également 4 créneaux dans la semaine pour lesquels vous pouvez venir sans rendez-vous,
                     dans la mesure où cette aide ponctuelle n'excède pas 15 minutes.</p>
-                <a class="bouton-picto" href="/aide_administrative.html">En savoir
+                <a class="bouton-picto" href="/aide_administrative">En savoir
                     plus</a>
             </div>
         </div>
@@ -190,20 +190,20 @@
         <div class="cards">
             <div class="card">
                 <br><img src="images/picto_atelier.png" width="100" height="100" alt="picto_atelier">
-                <p><a class="bouton-picto" href="/ateliers.html">ATELIERS</a>
+                <p><a class="bouton-picto" href="/ateliers">ATELIERS</a>
                 </p>
                 <p>Culturels<br>Sportifs<br>Musicaux</p>
             </div>
             <div class="card">
                 <br><img src="images/chaise-et-table.png" width="100" height="100" alt="picto_atelier_scolaire">
-                <p><a class="bouton-picto" href="/etablissements.html">ACTIONS
+                <p><a class="bouton-picto" href="/etablissements">ACTIONS
                         SCOLAIRES
                     </a></p>
                 <p>Collège Blanqui<br>Ecoles</p>
             </div>
             <div class="card">
                 <br><img src="images/fichier-et-dossier.png" width="100" height="100" alt="pico_aide_admin">
-                <p><a class="bouton-picto" href="/aide_administrative.html">AIDE
+                <p><a class="bouton-picto" href="/aide_administrative">AIDE
                         ADMINISTRATIVE</a></p>
                 <p>Sur rendez-vous<br>Sans rendez-vous</p>
             </div>
