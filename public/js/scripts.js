@@ -62,11 +62,12 @@ const burgerBtn = document.getElementById('burger-btn');
 const mainNavLinks = document.getElementById('nav-links');
 const submenu = document.querySelector('.submenu');
 
-if (burgerBtn && mainNavLinks && submenu) {
-    // Fonction pour basculer l'affichage des deux menus
+if (burgerBtn && mainNavLinks) {
     function toggleMenus() {
         mainNavLinks.classList.toggle('open');
-        submenu.classList.toggle('open');
+        if (submenu) {
+            submenu.classList.toggle('open');
+        }
     }
     // Écouteur d'événement pour le bouton burger
     burgerBtn.addEventListener('click', toggleMenus);
