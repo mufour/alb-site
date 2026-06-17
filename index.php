@@ -84,15 +84,13 @@
         </div>
         <div class="w-12-content-news">
             <div class="text">
-                <h3>Gala 2026</h3>
-                <p>Comme chaque année, l'Amicale Laïque de Bacalan organise son Gala !</p>
-                <p>La fin d'année scolaire approche, période de pause pour nos ateliers artistiques, c'est donc le moment pour nous de vous convier à venir découvrir ce que les jeunes et moins jeunes ont travaillé tout au long de l'année.</p>
-                <p>Une fois de plus, nous nous retrouverons à la Salle Point du Jour / Pierre Tachou le 13 Juin 2026 à partir de 19h.</p>
-                <p>Vous y découvrirez un spectacle qui reprend les ateliers de Danses, Piano, Hip-Hop et Guitare.</p>
+                <h3>L'appel du 18 Juin</h3>
+                <p>Le 18 Juin 2026, nous avons besoin de votre soutien. Notre association est en danger, face à l'immobilisme des pouvoirs public, nous vous appelons à nous rejoindre devant la mairie de Bacalan à partir de 17h.</p>
+                <p>Après tous nos appels vains aux institutions, nous allons nous faire entendre directement à la mairie de quartier, et nous avons besoin de votre soutien !</p>
                 <div class="hours2">
-                    <a href="https://www.amicalebacalan.com/images/aff-gala2026.jpg" class="side-img">
-                        <img src="images/aff-gala2026.jpg" height="400px" width="266px"
-                            alt="Gala 2026" />
+                    <a href="https://www.amicalebacalan.com/images/aff_18juin.jpg" class="side-img">
+                        <img src="images/aff_18juin.jpg" height="400px" width="266px"
+                            alt="Appel 18 juin" />
                     </a>
                 </div>
             </div>

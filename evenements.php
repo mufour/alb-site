@@ -31,7 +31,21 @@
         <div class="title">
             <h4>Evenements à venir</h4>
         </div>
-                <div class="event-card">
+        <div class="event-card">
+            <div class="event-content">
+                <h5>L'appel du 18 Juin</h5>
+                <p>Le 18 Juin 2026, nous avons besoin de votre soutien. Notre association est en danger, face à l'immobilisme des pouvoirs public, nous vous appelons à nous rejoindre devant la mairie de Bacalan à partir de 17h.</p>
+                <p>Après tous nos appels vains aux institutions, nous allons nous faire entendre directement à la mairie de quartier, et nous avons besoin de votre soutien !</p>
+            </div>
+            <div class="event-img"><a href="https://www.amicalebacalan.com/images/aff_18juin.jpg"><img
+                        src="images/aff_18juin.jpg" alt="Appel 18 Juin" height="300" width="200"
+                        class="side-img"></a>
+            </div>
+        </div>
+        <div>
+            <h4>Evenements passées</h4>
+        </div>
+        <div class="event-card">
             <div class="event-content">
                 <h5>Gala 2026</h5>
                 <p>Comme chaque année, l'Amicale Laïque de Bacalan organise son Gala !</p>
@@ -43,9 +57,6 @@
                         src="images/aff-gala2026.jpg" alt="Gala 2026" height="300" width="200"
                         class="side-img"></a>
             </div>
-        </div>
-        <div>
-            <h4>Evenements passées</h4>
         </div>
         <div class="event-card">
             <div class="event-content">
