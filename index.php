@@ -3,14 +3,40 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Accueil | Amicale Laïque de Bacalan</title>
-    <meta name="keywords" content="association,bacalan,ateliers,amicale">
-    <meta name="author" content="Raoul de Colombel">
+    <meta name="publisher" content="Raoul de Colombel">
     <meta name="description" content="Notre mission : Soutenir l'école publique et animer la vie locale.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Amicale Laïque de Bacalan">
+    <meta property="og:description" content="Soutenir l'école publique et animer la vie locale.">
+    <meta property="og:image" content="https://www.amicalebacalan.com/images/logo-bacalan.png">
+    <meta property="og:url" content="https://www.amicalebacalan.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Amicale Laïque de Bacalan">
+    <meta name="twitter:description" content="Soutenir l'école publique et animer la vie locale.">
     <link href="public/styles.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="images/logo-bacalan@0.5x.png">
+    <link rel="canonical" href="https://www.amicalebacalan.com/">
     <script src="public/js/scripts.js" defer></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Amicale Laïque de Bacalan",
+            "url": "https://www.amicalebacalan.com",
+            "telephone": "05 56 50 85 60",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "5 Rue Joseph Brunet",
+                "addressLocality": "Bordeaux",
+                "postalCode": "33000",
+                "addressCountry": "FR"
+            }
+            "logo": "https://www.amicalebacalan.com/images/logo-bacalan.png"
+        }
+    </script>
 </head>
 
 <body id="accueil">
