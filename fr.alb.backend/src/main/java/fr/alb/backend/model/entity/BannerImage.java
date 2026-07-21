@@ -1,5 +1,6 @@
 package fr.alb.backend.model.entity;
 
+import fr.alb.backend.model.base.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -13,11 +14,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BannerImage {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class BannerImage extends BaseEntity {
 
     @NotBlank
     private String title;

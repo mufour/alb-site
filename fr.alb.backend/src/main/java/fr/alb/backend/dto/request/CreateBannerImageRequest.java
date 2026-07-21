@@ -11,8 +11,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CreateBannerImageRequest {
 
-    private Long id;
-
     private String title;
 
     private String description;

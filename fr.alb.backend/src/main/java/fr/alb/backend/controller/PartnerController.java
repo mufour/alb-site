@@ -1,6 +1,8 @@
 package fr.alb.backend.controller;
 
-import fr.alb.backend.model.entity.Partner;
+import fr.alb.backend.dto.request.CreatePartnerRequest;
+import fr.alb.backend.dto.request.UpdatePartnerRequest;
+import fr.alb.backend.dto.response.PartnerResponse;
 import fr.alb.backend.service.PartnerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,24 +19,23 @@ public class PartnerController {
     }
 
     @GetMapping
-    public List<Partner> getAll() {
+    public List<PartnerResponse> getAll() {
         return partnerService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Partner getById(@PathVariable Long id) {
-        return partnerService.getById(id)
-                .orElseThrow(() -> new RuntimeException("Le partenaire n'a pas été trouvé"));
+    public PartnerResponse getById(@PathVariable Long id) {
+        return partnerService.getById(id);
     }
 
     @PostMapping
-    public Partner create(@RequestBody Partner partner) {
+    public PartnerResponse create(@RequestBody CreatePartnerRequest partner) {
         return partnerService.create(partner);
     }
 
     @PutMapping("/{id}")
-    public Partner update(@PathVariable Long id, @RequestBody Partner partner) {
-        return partnerService.update(id, partner);
+    public PartnerResponse update(@PathVariable Long id, @RequestBody UpdatePartnerRequest request) {
+        return partnerService.update(id, request);
     }
 
     @DeleteMapping("/{id}")

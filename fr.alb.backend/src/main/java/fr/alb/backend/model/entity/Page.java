@@ -1,5 +1,6 @@
 package fr.alb.backend.model.entity;
 
+import fr.alb.backend.model.base.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -14,7 +15,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Page {
+public class Page extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     private String slug;

@@ -1,42 +1,52 @@
 package fr.alb.backend.service;
 
+import fr.alb.backend.dto.request.CreatePartnerRequest;
+import fr.alb.backend.dto.request.UpdatePartnerRequest;
+import fr.alb.backend.dto.response.PartnerResponse;
+import fr.alb.backend.mapper.PartnerMapper;
 import fr.alb.backend.model.entity.Partner;
 import fr.alb.backend.repository.PartnerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PartnerService {
-     private final PartnerRepository partnerRepository;
 
-    public PartnerService(PartnerRepository partnerRepository) {
+    private final PartnerRepository partnerRepository;
+    private final PartnerMapper partnerMapper;
+
+    public PartnerService(PartnerRepository partnerRepository, PartnerMapper partnerMapper) {
         this.partnerRepository = partnerRepository;
+        this.partnerMapper = partnerMapper;
     }
 
-    public List<Partner> getAll() {
-        return partnerRepository.findAll();
+    public List<PartnerResponse> getAll() {
+        return partnerRepository.findAll()
+                .stream()
+                .map(partnerMapper::toResponse)
+                .toList();
     }
 
-    public Optional<Partner> getById(Long id) {
-        return partnerRepository.findById(id);
-    }
-
-    public Partner create(Partner partner) {
-        return partnerRepository.save(partner);
-    }
-
-    public Partner update(Long id, Partner updated) {
-        return partnerRepository.findById(id)
-                .map(existing -> {
-                    existing.setName(updated.getName());
-                    existing.setType(updated.getType());
-                    existing.setWebsiteUrl(updated.getWebsiteUrl());
-                    existing.setDisplayOrder(updated.getDisplayOrder());
-                    return partnerRepository.save(existing);
-                })
+    public PartnerResponse getById(Long id) {
+        Partner partner = partnerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Le partenaire n'a pas été trouvé"));
+        return partnerMapper.toResponse(partner);
+    }
+
+    public PartnerResponse create(CreatePartnerRequest request) {
+        Partner partner = partnerMapper.toEntity(request);
+        Partner saved = partnerRepository.save(partner);
+        return partnerMapper.toResponse(saved);
+    }
+
+    public PartnerResponse update(Long id, UpdatePartnerRequest request) {
+        Partner partner = partnerRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Le partenaire n'a pas été trouvé"));
+        partnerMapper.updateEntity(request, partner);
+        Partner saved = partnerRepository.save(partner);
+        return partnerMapper.toResponse(saved);
     }
 
     public void delete(Long id) {

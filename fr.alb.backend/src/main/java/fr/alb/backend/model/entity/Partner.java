@@ -1,12 +1,13 @@
 package fr.alb.backend.model.entity;
 
+import fr.alb.backend.model.base.BaseEntity;
 import fr.alb.backend.model.enums.PartnerType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "partners")
-public class Partner {
+public class Partner extends BaseEntity {
 
     @NotBlank
     private String name;

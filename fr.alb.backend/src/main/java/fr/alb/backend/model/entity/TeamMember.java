@@ -1,5 +1,6 @@
 package fr.alb.backend.model.entity;
 
+import fr.alb.backend.model.base.BaseEntity;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -13,7 +14,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeamMember {
+public class TeamMember extends BaseEntity {
 
     private String firstName;
     private String lastName;

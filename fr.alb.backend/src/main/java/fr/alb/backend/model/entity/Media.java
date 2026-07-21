@@ -1,8 +1,8 @@
 package fr.alb.backend.model.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
+import fr.alb.backend.model.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Media {
+public class Media extends BaseEntity {
 
     @Column(nullable = false)
     private String fileName;
@@ -26,10 +26,4 @@ public class Media {
 
     private Long size;
 
-    private LocalDateTime uploadedAt;
-
-    @PrePersist
-    public void prePersist() {
-        this.uploadedAt = LocalDateTime.now();
-    }
 }

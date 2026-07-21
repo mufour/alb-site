@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
+import fr.alb.backend.model.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event {
+public class Event extends BaseEntity {
 
     @NotBlank
     @Column(nullable = false)
