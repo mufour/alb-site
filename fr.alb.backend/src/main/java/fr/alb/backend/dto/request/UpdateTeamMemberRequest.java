@@ -1,31 +1,25 @@
-package fr.alb.backend.model.entity;
-
-import jakarta.persistence.*;
+package fr.alb.backend.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-@Entity
-@Table(name = "team_members")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeamMember {
-
+public class UpdateTeamMemberRequest {
+ 
     private String firstName;
+
     private String lastName;
 
     private String role;
 
-    @Column(columnDefinition = "TEXT")
     private String bio;
 
-    @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Media image;
+    private Long imageId;
 
     private Integer displayOrder;
 }

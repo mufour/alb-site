@@ -8,10 +8,6 @@ import jakarta.validation.constraints.NotBlank;
 @Table(name = "partners")
 public class Partner {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @NotBlank
     private String name;
 
@@ -25,14 +21,6 @@ public class Partner {
     private Media image;
 
     private Integer displayOrder;
-
-    public Long getid() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
