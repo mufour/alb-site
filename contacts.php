@@ -25,7 +25,7 @@
             <h2>Soutenir l'école publique et animer la vie locale<br>Expression de chacun et chacune, épanouissement
                 pour tous</h2>
         </div>
-       <!-- <div>
+        <div>
             <h3>Nous contacter</h3>
             <hr>
         </div>
@@ -44,12 +44,18 @@
                         <label for="message">Votre message | Obligatoire</label><br>
                         <textarea name="message" id="message" rows="10"></textarea>
                     </div>
+                    <div class="coche">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">
+                            J'accepte que mes données soient utilisées pour répondre à ma demande.
+                        </label>
+                    </div>
                     <div class="submit">
                         <input type="submit" value="ENVOYER VOTRE MAIL" class="submit-btn">
                     </div>
                 </div>
             </form>
-        </div>-->
+        </div>
         <div>
             <h3>Informations utiles</h3>
             <hr>
@@ -135,7 +141,7 @@
             <p>Nous vous répondrons dès que possible.</p>
         </div>
     </div>
-    
+
 </body>
 
 </html>

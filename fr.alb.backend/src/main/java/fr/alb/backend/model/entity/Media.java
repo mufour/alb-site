@@ -3,8 +3,17 @@ package fr.alb.backend.model.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 @Entity
 @Table(name = "media")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Media {
 
     @Id
@@ -27,6 +36,4 @@ public class Media {
     public void prePersist() {
         this.uploadedAt = LocalDateTime.now();
     }
-
-    // getters / setters
 }

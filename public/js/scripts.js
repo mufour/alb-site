@@ -58,7 +58,7 @@ if (track) {
 }
 
 /* ---------------- Menu Burger ---------------- */
-const burgerBtn = document.getElementById('burger-btn');
+/*const burgerBtn = document.getElementById('burger-btn');
 const mainNavLinks = document.getElementById('nav-links');
 const submenu = document.querySelector('.submenu');
 
@@ -145,7 +145,7 @@ if (demarches && logos && modalHelp) {
 
 /* ---------------- Filtre recherche ---------------- */
 
-const card = document.querySelectorAll('.card-partner');
+/*const card = document.querySelectorAll('.card-partner');
 const filtre = document.getElementById('partner-filter')
 
 filtre.addEventListener('input', () => {
@@ -160,7 +160,8 @@ filtre.addEventListener('input', () => {
 /* ---------------- Formulaire ---------------- */
 
 /* ---------------- Message au clic du champ e-mail ----------------*/
-/*const emailInput = document.getElementById('email');
+const emailInput = document.getElementById('email');
+const form = document.querySelector('form');
 
 if (form && emailInput) {
 
@@ -185,10 +186,9 @@ if (form && emailInput) {
         }
     });
 
-}*/
+}
 
 /* ---------------- Modal formulaire ---------------- */
-const form = document.querySelector('form');
 const modal = document.getElementById('contact-modal');
 const modalClose = document.getElementById('modal-close');
 

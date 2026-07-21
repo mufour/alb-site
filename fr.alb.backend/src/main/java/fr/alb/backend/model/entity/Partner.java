@@ -2,6 +2,7 @@ package fr.alb.backend.model.entity;
 
 import fr.alb.backend.model.enums.PartnerType;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "partners")
@@ -11,6 +12,7 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -23,6 +25,14 @@ public class Partner {
     private Media image;
 
     private Integer displayOrder;
+
+    public Long getid() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -54,5 +64,13 @@ public class Partner {
 
     public void setType(PartnerType type) {
         this.type = type;
+    }
+
+    public Media getImage() {
+        return image;
+    }
+
+    public void getImage(Media image) {
+        this.image = image;
     }
 }

@@ -2,8 +2,17 @@ package fr.alb.backend.model.entity;
 
 import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 @Entity
 @Table(name = "team_members")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TeamMember {
 
     @Id
@@ -23,6 +32,4 @@ public class TeamMember {
     private Media image;
 
     private Integer displayOrder;
-
-    // getters / setters
 }
