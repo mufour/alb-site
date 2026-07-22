@@ -32,6 +32,10 @@ public class PartnerMapper {
         response.setWebsiteUrl(partner.getWebsiteUrl());
         response.setDisplayOrder(partner.getDisplayOrder());
 
+        if (partner.getImage() != null) {
+            response.setImageId(partner.getImage().getId());
+    }
+
         return response;
     }
 

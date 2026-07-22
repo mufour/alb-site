@@ -1,10 +1,13 @@
 package fr.alb.backend.mapper;
 
+import org.springframework.stereotype.Component;
+
 import fr.alb.backend.dto.request.CreateBannerImageRequest;
 import fr.alb.backend.dto.request.UpdateBannerImageRequest;
 import fr.alb.backend.dto.response.BannerImageResponse;
 import fr.alb.backend.model.entity.BannerImage;
 
+@Component
 public class BannerImageMapper {
 
     public BannerImage toEntity(CreateBannerImageRequest request) {
@@ -28,6 +31,10 @@ public class BannerImageMapper {
         response.setDescription(bannerImage.getDescription());
         response.setDisplayOrder(bannerImage.getDisplayOrder());
         response.setActive(bannerImage.getActive());
+
+        if (bannerImage.getImage() != null) {
+            response.setImageId(bannerImage.getImage().getId());
+        }
 
         return response;
     }

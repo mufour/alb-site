@@ -59,7 +59,7 @@ public class Partner extends BaseEntity {
         return image;
     }
 
-    public void getImage(Media image) {
+    public void setImage(Media image) {
         this.image = image;
     }
 }

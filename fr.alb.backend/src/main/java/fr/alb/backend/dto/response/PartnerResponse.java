@@ -23,6 +23,5 @@ public class PartnerResponse {
 
     private Integer displayOrder;
 
-    private String imageUrl;
-
+    private Long imageId;
 }
