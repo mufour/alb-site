@@ -48,15 +48,15 @@ public class BannerImageService {
 
     public BannerImageResponse update(Long id, UpdateBannerImageRequest request) {
         BannerImage bannerImage = bannerImageRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
-            bannerImageMapper.updateEntity(request, bannerImage);
-            BannerImage saved = bannerImageRepository.save(bannerImage);
-            return bannerImageMapper.toResponse(saved);
+                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+        bannerImageMapper.updateEntity(request, bannerImage);
+        BannerImage saved = bannerImageRepository.save(bannerImage);
+        return bannerImageMapper.toResponse(saved);
     }
 
     public void delete(Long id) {
         BannerImage bannerImage = bannerImageRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
         bannerImageRepository.delete(bannerImage);
     }
 }
