@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface MediaRepository extends JpaRepository<Media, Long> {
 
     Optional<Media> findByFilePath(String filePath);
+    Optional<Media> findByFileName(String fileName);
 }
