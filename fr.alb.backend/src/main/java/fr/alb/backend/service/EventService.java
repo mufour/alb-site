@@ -48,7 +48,7 @@ public class EventService {
 
     public EventResponse update(Long id, UpdateEventRequest request) {
         Event event = eventRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouve"));
+                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouve"));
         eventMapper.updateEntity(request, event);
         Event saved = eventRepository.save(event);
         return eventMapper.toResponse(saved);
@@ -56,8 +56,7 @@ public class EventService {
 
     public void delete(Long id) {
         Event event = eventRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouvé"));
         eventRepository.delete(event);
-    } 
-
+    }
 }

@@ -3,6 +3,7 @@ package fr.alb.backend.controller;
 import fr.alb.backend.dto.request.CreatePartnerRequest;
 import fr.alb.backend.dto.request.UpdatePartnerRequest;
 import fr.alb.backend.dto.response.PartnerResponse;
+import fr.alb.backend.model.enums.PartnerType;
 import fr.alb.backend.service.PartnerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +29,14 @@ public class PartnerController {
         return partnerService.getById(id);
     }
 
+    @GetMapping("/type/{type}")
+    public List<PartnerResponse> getByType(@PathVariable PartnerType type) {
+        return partnerService.getByType(type);
+    }
+
     @PostMapping
-    public PartnerResponse create(@RequestBody CreatePartnerRequest partner) {
-        return partnerService.create(partner);
+    public PartnerResponse create(@RequestBody CreatePartnerRequest request) {
+        return partnerService.create(request);
     }
 
     @PutMapping("/{id}")

@@ -8,7 +8,6 @@ import fr.alb.backend.model.entity.Media;
 
 import java.util.List;
 
-
 @Service
 public class MediaService {
 
@@ -16,7 +15,7 @@ public class MediaService {
     private final MediaMapper mediaMapper;
 
     public MediaService(MediaRepository mediaRepository,
-                        MediaMapper mediaMapper) {
+            MediaMapper mediaMapper) {
         this.mediaRepository = mediaRepository;
         this.mediaMapper = mediaMapper;
     }
@@ -31,27 +30,21 @@ public class MediaService {
     public MediaResponse getById(Long id) {
 
         Media media = mediaRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Le média n'a pas été trouvé"));
-
+                .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
         return mediaMapper.toResponse(media);
     }
 
     public MediaResponse getByFileName(String fileName) {
 
         Media media = mediaRepository.findByFileName(fileName)
-                .orElseThrow(() ->
-                        new RuntimeException("Le média n'a pas été trouvé"));
-
+                .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
         return mediaMapper.toResponse(media);
     }
 
     public void delete(Long id) {
 
         Media media = mediaRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Le média n'a pas été trouvé"));
-
+                .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
         mediaRepository.delete(media);
     }
 }

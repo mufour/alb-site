@@ -36,9 +36,9 @@ public class TeamMemberService {
 
     public List<TeamMemberResponse> getByRole(String role) {
         return teamMemberRepository.findByRole(role)
-            .stream()
-            .map(teamMemberMapper::toResponse)
-            .toList();
+                .stream()
+                .map(teamMemberMapper::toResponse)
+                .toList();
     }
 
     public TeamMemberResponse create(CreateTeamMemberRequest request) {

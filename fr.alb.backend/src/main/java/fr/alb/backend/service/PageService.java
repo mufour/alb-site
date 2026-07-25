@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class PageService {
-    
+
     private final PageRepository pageRepository;
     private final PageMapper pageMapper;
 
@@ -24,20 +24,20 @@ public class PageService {
 
     public List<PageResponse> getAll() {
         return pageRepository.findAll()
-        .stream()
-        .map(pageMapper::toResponse)
-        .toList();
+                .stream()
+                .map(pageMapper::toResponse)
+                .toList();
     }
 
     public PageResponse getById(Long id) {
         Page page = pageRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
         return pageMapper.toResponse(page);
     }
 
     public PageResponse getBySlug(String slug) {
         Page page = pageRepository.findBySlug(slug)
-        .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
         return pageMapper.toResponse(page);
     }
 
@@ -49,7 +49,7 @@ public class PageService {
 
     public PageResponse update(Long id, UpdatePageRequest request) {
         Page page = pageRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
         pageMapper.updateEntity(request, page);
         Page saved = pageRepository.save(page);
         return pageMapper.toResponse(saved);
@@ -57,7 +57,7 @@ public class PageService {
 
     public void delete(Long id) {
         Page page = pageRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
         pageRepository.delete(page);
     }
 }

@@ -5,6 +5,7 @@ import fr.alb.backend.dto.request.UpdatePartnerRequest;
 import fr.alb.backend.dto.response.PartnerResponse;
 import fr.alb.backend.mapper.PartnerMapper;
 import fr.alb.backend.model.entity.Partner;
+import fr.alb.backend.model.enums.PartnerType;
 import fr.alb.backend.repository.PartnerRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,20 @@ public class PartnerService {
         return partnerMapper.toResponse(partner);
     }
 
+    public List<PartnerResponse> getByType(PartnerType type) {
+
+        List<PartnerResponse> partners = partnerRepository
+                .findByTypeOrderByDisplayOrderAsc(type)
+                .stream()
+                .map(partnerMapper::toResponse)
+                .toList();
+        if (partners.isEmpty()) {
+            throw new RuntimeException("Aucun partenaire trouvé pour le type " + type);
+        }
+
+        return partners;
+    }
+
     public PartnerResponse create(CreatePartnerRequest request) {
         Partner partner = partnerMapper.toEntity(request);
         Partner saved = partnerRepository.save(partner);
@@ -42,8 +57,7 @@ public class PartnerService {
 
     public PartnerResponse update(Long id, UpdatePartnerRequest request) {
         Partner partner = partnerRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Le partenaire n'a pas été trouvé"));
+                .orElseThrow(() -> new RuntimeException("Le partenaire n'a pas été trouvé"));
         partnerMapper.updateEntity(request, partner);
         Partner saved = partnerRepository.save(partner);
         return partnerMapper.toResponse(saved);
