@@ -1,0 +1,26 @@
+meta {
+  name: Put update news
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/news/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Nouveau site internet",
+    "subtitle": "Le site fait peau neuve",
+    "content": "J'ai fait un back-end, np 8-)",
+    "imageId": null,
+    "published": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

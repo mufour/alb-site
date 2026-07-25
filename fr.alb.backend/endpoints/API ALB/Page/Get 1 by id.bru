@@ -1,0 +1,15 @@
+meta {
+  name: Get 1 by id
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8080/api/pages/3
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Put update event
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/events/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+    {
+      "title": "Daniel Pantchaivchko",
+      "description": "Master Class",
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-30",
+      "location": "Stade de France",
+      "imageId": null,
+      "published": true
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

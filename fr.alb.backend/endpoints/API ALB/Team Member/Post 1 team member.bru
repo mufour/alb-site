@@ -1,0 +1,27 @@
+meta {
+  name: Post 1 team member
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/team-members
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "Fabinouze",
+    "lastName": "Hug",
+    "role": "Roi",
+    "bio": "3ème millénaire master",
+    "imageId": null,
+    "displayOrder": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

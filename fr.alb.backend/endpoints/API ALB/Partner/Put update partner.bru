@@ -1,0 +1,26 @@
+meta {
+  name: Put update partner
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/partners/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name":"Ville de Bordeaux",
+    "type":"SESSUAL",
+    "websiteUrl":"https://www.test.fr",
+    "displayOrder":8080,
+    "active":true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

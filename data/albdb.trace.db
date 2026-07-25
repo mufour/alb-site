@@ -556,3 +556,43 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/raoul/D
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 54 more
+2026-07-25 22:49:25.609281+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" non trouvée
+Table "TEAM" not found; SQL statement:
+SELECT * FROM TEAM-MEMBER [42102-224]
+2026-07-25 22:49:27.980733+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" non trouvée
+Table "TEAM" not found; SQL statement:
+SELECT * FROM TEAM-MEMBERS [42102-224]
+2026-07-25 22:49:31.430044+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" non trouvée
+Table "TEAM" not found; SQL statement:
+SELECT * FROM TEAM-MEMBERS [42102-224]
+2026-07-25 22:49:32.779539+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" non trouvée
+Table "TEAM" not found; SQL statement:
+SELECT * FROM TEAM-MEMBERS [42102-224]
+2026-07-25 22:49:35.390914+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" non trouvée
+Table "TEAM" not found; SQL statement:
+SELECT * FROM TEAM-MEMBER [42102-224]
+2026-07-25 22:49:50.433404+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAMMEMBER" non trouvée
+Table "TEAMMEMBER" not found; SQL statement:
+SELECT * FROM TEAMMEMBER [42102-224]
+2026-07-25 22:49:53.141293+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAMMEMBERS" non trouvée
+Table "TEAMMEMBERS" not found; SQL statement:
+SELECT * FROM TEAMMEMBERS [42102-224]
+2026-07-25 23:02:29.487783+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BANNER" non trouvée
+Table "BANNER" not found; SQL statement:
+SELECT * FROM BANNER-IMAGE [42102-224]
+2026-07-25 23:02:35.710325+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BANNERIMAGE" non trouvée
+Table "BANNERIMAGE" not found; SQL statement:
+SELECT * FROM BANNERIMAGE [42102-224]
+2026-07-25 23:02:39.771935+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BANNERIMAGES" non trouvée
+Table "BANNERIMAGES" not found; SQL statement:
+SELECT * FROM BANNERIMAGES [42102-224]

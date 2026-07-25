@@ -18,7 +18,6 @@ public class BannerImageMapper {
         bannerImage.setDescription(request.getDescription());
         bannerImage.setDisplayOrder(request.getDisplayOrder());
         bannerImage.setActive(request.getActive());
-
         return bannerImage;
     }
 

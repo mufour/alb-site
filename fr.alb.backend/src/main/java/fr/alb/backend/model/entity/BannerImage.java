@@ -22,8 +22,8 @@ public class BannerImage extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @NotNull
-    @ManyToOne(optional = false)
+    //@NotNull
+    @ManyToOne
     @JoinColumn(name = "image_id")
     private Media image;
 

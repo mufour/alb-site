@@ -1,0 +1,26 @@
+meta {
+  name: Post 1 banner image
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/banner-images
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Bannière Accueil",
+    "description": "Image principale de la page d'accueil",
+    "imageId": null,
+    "displayOrder": 1,
+    "active": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

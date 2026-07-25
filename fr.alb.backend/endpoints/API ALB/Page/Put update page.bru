@@ -1,0 +1,24 @@
+meta {
+  name: Put update page
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/pages/3
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "slug": "test-page2",
+    "title": "page test2",
+    "content": "lorem ipsum TEST PUT, UPDATE !"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

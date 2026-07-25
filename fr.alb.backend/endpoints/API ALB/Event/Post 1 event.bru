@@ -1,0 +1,28 @@
+meta {
+  name: Post 1 event
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/events
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Tournoi de Football",
+    "description": "Tournoi annuel organisé par l'association.",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-13",
+    "location": "Stade de Bacalan",
+    "imageId": null,
+    "published": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

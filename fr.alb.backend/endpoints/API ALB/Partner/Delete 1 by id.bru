@@ -1,0 +1,16 @@
+meta {
+  name: Delete 1 by id
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/api/partners/2
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

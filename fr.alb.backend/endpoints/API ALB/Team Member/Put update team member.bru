@@ -1,0 +1,27 @@
+meta {
+  name: Put update team member
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/team-members/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "Fabinouze",
+    "lastName": "Hug",
+    "role": "Roi",
+    "bio": "3ème millénaire master, biking bike king",
+    "imageId": null,
+    "displayOrder": 2
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Post 1 partner
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/partners
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Test",
+    "type": "ASSOCIATIF",
+    "websiteUrl": "https://www.test.fr",
+    "displayOrder": 2,
+    "active": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
