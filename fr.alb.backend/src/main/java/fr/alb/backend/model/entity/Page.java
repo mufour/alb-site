@@ -26,4 +26,8 @@ public class Page extends BaseEntity {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "image_id")
+    private Media image;
 }

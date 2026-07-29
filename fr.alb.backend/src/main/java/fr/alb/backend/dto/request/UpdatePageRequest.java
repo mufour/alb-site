@@ -16,4 +16,6 @@ public class UpdatePageRequest {
     private String title;
 
     private String content;
+
+    private Long imageId;
 }

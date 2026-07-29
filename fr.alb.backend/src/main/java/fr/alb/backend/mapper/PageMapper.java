@@ -9,7 +9,7 @@ import fr.alb.backend.model.entity.Page;
 
 @Component
 public class PageMapper {
-    
+
     public Page toEntity(CreatePageRequest request) {
 
         Page page = new Page();
@@ -21,7 +21,7 @@ public class PageMapper {
         return page;
     }
 
-    public PageResponse toResponse (Page page) {
+    public PageResponse toResponse(Page page) {
 
         PageResponse response = new PageResponse();
 
@@ -30,11 +30,15 @@ public class PageMapper {
         response.setSlug(page.getSlug());
         response.setContent(page.getContent());
 
+        if (page.getImage() != null) {
+            response.setImageId(page.getImage().getId());
+        }
+
         return response;
     }
 
     public void updateEntity(UpdatePageRequest request, Page page) {
-        
+
         page.setTitle(request.getTitle());
         page.setSlug(request.getSlug());
         page.setContent(request.getContent());

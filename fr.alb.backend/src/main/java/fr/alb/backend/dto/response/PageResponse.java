@@ -18,4 +18,6 @@ public class PageResponse {
     private String title;
 
     private String content;
+
+    private Long imageId;
 }

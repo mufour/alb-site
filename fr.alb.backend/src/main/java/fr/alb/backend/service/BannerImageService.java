@@ -6,7 +6,9 @@ import fr.alb.backend.dto.request.UpdateBannerImageRequest;
 import fr.alb.backend.dto.response.BannerImageResponse;
 import fr.alb.backend.mapper.BannerImageMapper;
 import fr.alb.backend.model.entity.BannerImage;
+import fr.alb.backend.model.entity.Media;
 import fr.alb.backend.repository.BannerImageRepository;
+import fr.alb.backend.repository.MediaRepository;
 
 import java.util.List;
 
@@ -15,10 +17,13 @@ public class BannerImageService {
 
     private final BannerImageRepository bannerImageRepository;
     private final BannerImageMapper bannerImageMapper;
+    private final MediaRepository mediaRepository;
 
-    public BannerImageService(BannerImageRepository bannerImageRepository, BannerImageMapper bannerImageMapper) {
+    public BannerImageService(BannerImageRepository bannerImageRepository, BannerImageMapper bannerImageMapper,
+            MediaRepository mediaRepository) {
         this.bannerImageRepository = bannerImageRepository;
         this.bannerImageMapper = bannerImageMapper;
+        this.mediaRepository = mediaRepository;
     }
 
     public List<BannerImageResponse> getAll() {
@@ -42,6 +47,11 @@ public class BannerImageService {
 
     public BannerImageResponse create(CreateBannerImageRequest request) {
         BannerImage bannerImage = bannerImageMapper.toEntity(request);
+        if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+            bannerImage.setImage(media);
+        }
         BannerImage saved = bannerImageRepository.save(bannerImage);
         return bannerImageMapper.toResponse(saved);
     }
@@ -50,6 +60,13 @@ public class BannerImageService {
         BannerImage bannerImage = bannerImageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
         bannerImageMapper.updateEntity(request, bannerImage);
+        if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+            bannerImage.setImage(media);
+        } else {
+            bannerImage.setImage(null);
+        }
         BannerImage saved = bannerImageRepository.save(bannerImage);
         return bannerImageMapper.toResponse(saved);
     }

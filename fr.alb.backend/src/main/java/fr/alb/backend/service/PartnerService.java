@@ -4,8 +4,10 @@ import fr.alb.backend.dto.request.CreatePartnerRequest;
 import fr.alb.backend.dto.request.UpdatePartnerRequest;
 import fr.alb.backend.dto.response.PartnerResponse;
 import fr.alb.backend.mapper.PartnerMapper;
+import fr.alb.backend.model.entity.Media;
 import fr.alb.backend.model.entity.Partner;
 import fr.alb.backend.model.enums.PartnerType;
+import fr.alb.backend.repository.MediaRepository;
 import fr.alb.backend.repository.PartnerRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,12 @@ public class PartnerService {
 
     private final PartnerRepository partnerRepository;
     private final PartnerMapper partnerMapper;
+    private final MediaRepository mediaRepository;
 
-    public PartnerService(PartnerRepository partnerRepository, PartnerMapper partnerMapper) {
+    public PartnerService(PartnerRepository partnerRepository, PartnerMapper partnerMapper,MediaRepository mediaRepository) {
         this.partnerRepository = partnerRepository;
         this.partnerMapper = partnerMapper;
+        this.mediaRepository = mediaRepository;
     }
 
     public List<PartnerResponse> getAll() {
@@ -51,6 +55,11 @@ public class PartnerService {
 
     public PartnerResponse create(CreatePartnerRequest request) {
         Partner partner = partnerMapper.toEntity(request);
+         if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+            partner.setImage(media);
+        }
         Partner saved = partnerRepository.save(partner);
         return partnerMapper.toResponse(saved);
     }
@@ -59,6 +68,13 @@ public class PartnerService {
         Partner partner = partnerRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Le partenaire n'a pas été trouvé"));
         partnerMapper.updateEntity(request, partner);
+         if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+            partner.setImage(media);
+        } else {
+            partner.setImage(null);
+        }
         Partner saved = partnerRepository.save(partner);
         return partnerMapper.toResponse(saved);
     }

@@ -1,0 +1,15 @@
+meta {
+  name: Delete 1 by id
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/api/banner-images/4
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

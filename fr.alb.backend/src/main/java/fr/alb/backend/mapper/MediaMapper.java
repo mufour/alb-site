@@ -21,5 +21,4 @@ public class MediaMapper {
 
         return response;
     }
-
 }

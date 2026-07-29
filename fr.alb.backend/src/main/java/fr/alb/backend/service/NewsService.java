@@ -2,7 +2,9 @@ package fr.alb.backend.service;
 
 import org.springframework.stereotype.Service;
 import fr.alb.backend.mapper.NewsMapper;
+import fr.alb.backend.model.entity.Media;
 import fr.alb.backend.model.entity.News;
+import fr.alb.backend.repository.MediaRepository;
 import fr.alb.backend.repository.NewsRepository;
 import fr.alb.backend.dto.request.CreateNewsRequest;
 import fr.alb.backend.dto.request.UpdateNewsRequest;
@@ -15,10 +17,12 @@ public class NewsService {
 
     private final NewsRepository newsRepository;
     private final NewsMapper newsMapper;
+    private final MediaRepository mediaRepository;
 
-    public NewsService(NewsRepository newsRepository, NewsMapper newsMapper) {
+    public NewsService(NewsRepository newsRepository, NewsMapper newsMapper, MediaRepository mediaRepository) {
         this.newsRepository = newsRepository;
         this.newsMapper = newsMapper;
+        this.mediaRepository = mediaRepository;
     }
 
     public List<NewsResponse> getAll() {
@@ -48,21 +52,33 @@ public class NewsService {
 
     public NewsResponse create(CreateNewsRequest request) {
         News news = newsMapper.toEntity(request);
+        if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+            news.setImage(media);
+        }
         News saved = newsRepository.save(news);
         return newsMapper.toResponse(saved);
     }
 
     public NewsResponse update(Long id, UpdateNewsRequest request) {
         News news = newsRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("La news n'a pas été trouvé"));
-            newsMapper.updateEntity(request, news);
-            News saved = newsRepository.save(news);
-            return newsMapper.toResponse(saved);
+                .orElseThrow(() -> new RuntimeException("La news n'a pas été trouvé"));
+        newsMapper.updateEntity(request, news);
+        if (request.getImageId() != null) {
+            Media media = mediaRepository.findById(request.getImageId())
+                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+            news.setImage(media);
+        } else {
+            news.setImage(null);
+        }
+        News saved = newsRepository.save(news);
+        return newsMapper.toResponse(saved);
     }
 
     public void delete(Long id) {
         News news = newsRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("La news n'a pas été trouve"));
+                .orElseThrow(() -> new RuntimeException("La news n'a pas été trouve"));
         newsRepository.delete(news);
     }
 }
