@@ -1,12 +1,12 @@
 package fr.alb.backend.service;
 
 import fr.alb.backend.dto.response.MediaResponse;
-import fr.alb.backend.exception.BadRequestException;
 import fr.alb.backend.exception.ResourceNotFoundException;
 import fr.alb.backend.mapper.MediaMapper;
 import fr.alb.backend.model.entity.Media;
 import fr.alb.backend.repository.MediaRepository;
 import org.springframework.core.io.Resource;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -66,8 +66,8 @@ public class MediaService {
         try {
             mediaRepository.delete(media);
             mediaRepository.flush();
-        } catch (RuntimeException exception) {
-            throw new BadRequestException("Ce média ne peut pas être supprimé car il est encore utilisé.", exception);
+        } catch (DataIntegrityViolationException exception) {
+            throw exception;
         }
         fileStorageService.delete(media.getFileName());
     }
