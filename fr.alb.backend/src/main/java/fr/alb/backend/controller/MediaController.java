@@ -35,7 +35,22 @@ public class MediaController {
     @GetMapping("/{id}/file")
     public ResponseEntity<Resource> getFile(@PathVariable Long id) {
         MediaResponse media = mediaService.getById(id);
-        Resource resource = mediaService.loadFile(id);
+        return fileResponse(media, mediaService.loadFile(id));
+    }
+
+    @GetMapping("/file/{fileName}")
+    public ResponseEntity<Resource> getFileByName(@PathVariable String fileName) {
+        MediaResponse media = mediaService.getByFileName(fileName);
+        return fileResponse(media, mediaService.loadFile(media.getId()));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        mediaService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    private ResponseEntity<Resource> fileResponse(MediaResponse media, Resource resource) {
         MediaType mediaType;
         try {
             mediaType = MediaType.parseMediaType(media.getContentType());
@@ -46,11 +61,5 @@ public class MediaController {
                 .contentType(mediaType)
                 .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + media.getFileName() + "\"")
                 .body(resource);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        mediaService.delete(id);
-        return ResponseEntity.noContent().build();
     }
 }
