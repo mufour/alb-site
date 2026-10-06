@@ -63,7 +63,7 @@ public class FileStorageService {
 
         try {
             Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
-            return new StoredFile(storedName, "/uploads/" + storedName, contentType, file.getSize());
+            return new StoredFile(storedName, "/api/media/file/" + storedName, contentType, file.getSize());
         } catch (IOException exception) {
             throw new BadRequestException("Impossible d'enregistrer le fichier.", exception);
         }
