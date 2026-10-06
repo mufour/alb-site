@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import fr.alb.backend.dto.request.CreatePartnerRequest;
 import fr.alb.backend.dto.request.UpdatePartnerRequest;
 import fr.alb.backend.dto.response.PartnerResponse;
@@ -35,12 +37,12 @@ public class PartnerController {
     }
 
     @PostMapping
-    public PartnerResponse create(@RequestBody CreatePartnerRequest request) {
+    public PartnerResponse create(@Valid @RequestBody CreatePartnerRequest request) {
         return partnerService.create(request);
     }
 
     @PutMapping("/{id}")
-    public PartnerResponse update(@PathVariable Long id, @RequestBody UpdatePartnerRequest request) {
+    public PartnerResponse update(@PathVariable Long id, @Valid @RequestBody UpdatePartnerRequest request) {
         return partnerService.update(id, request);
     }
 
