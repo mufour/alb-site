@@ -1,5 +1,7 @@
 package fr.alb.backend.service;
 
+import fr.alb.backend.exception.ResourceNotFoundException;
+
 import org.springframework.stereotype.Service;
 import fr.alb.backend.mapper.EventMapper;
 import fr.alb.backend.model.entity.Event;
@@ -34,13 +36,13 @@ public class EventService {
 
     public EventResponse getById(Long id) {
         Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'évènement n'a pas été trouvé"));
         return eventMapper.toResponse(event);
     }
 
     public EventResponse getByTitle(String title) {
         Event event = eventRepository.findByTitle(title)
-                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'évènement n'a pas été trouvé"));
         return eventMapper.toResponse(event);
     }
 
@@ -48,7 +50,7 @@ public class EventService {
         Event event = eventMapper.toEntity(request);
           if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Le média n'a pas été trouvé"));
             event.setImage(media);
         }
         Event saved = eventRepository.save(event);
@@ -57,11 +59,11 @@ public class EventService {
 
     public EventResponse update(Long id, UpdateEventRequest request) {
         Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouve"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'évènement n'a pas été trouve"));
         eventMapper.updateEntity(request, event);
          if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Le média n'a pas été trouvé"));
             event.setImage(media);
         } else {
             event.setImage(null);
@@ -72,7 +74,7 @@ public class EventService {
 
     public void delete(Long id) {
         Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'évènement n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'évènement n'a pas été trouvé"));
         eventRepository.delete(event);
     }
 }
