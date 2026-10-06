@@ -1,0 +1,26 @@
+meta {
+  name: Post 1 news Chatgpt
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/news
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Actualité non publiée",
+    "subtitle": "Test du filtrage public",
+    "content": "Cette actualité ne doit pas apparaître dans l'API publique.",
+    "published": false,
+    "imageId": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

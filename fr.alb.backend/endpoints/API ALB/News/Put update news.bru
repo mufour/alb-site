@@ -1,7 +1,7 @@
 meta {
   name: Put update news
   type: http
-  seq: 3
+  seq: 4
 }
 
 put {
@@ -12,10 +12,11 @@ put {
 
 body:json {
   {
-    "title": "Nouveau site internet",
-    "subtitle": "Le site fait peau neuve",
-    "content": "J'ai fait un back-end, np 8-)",
-    "imageId": null,
+    "id": 1,
+    "title": "Actualité : test du l'upload d'un média et d'une news",
+    "subtitle": "upload c'est ok, maintenant la news avec le media",
+    "content": "Cette actualité permet de tester le backend Spring Boot.",
+    "imageId": 1,
     "published": true
   }
 }

@@ -1,0 +1,25 @@
+meta {
+  name: Post 1 media
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/media
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+  "fileName": "test.jpg",
+  "filePath": /uploads/test.jpg,
+  "contentType": "image/jpeg",
+  "size": 123456
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
