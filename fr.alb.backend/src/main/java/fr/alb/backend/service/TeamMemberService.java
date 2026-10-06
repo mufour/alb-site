@@ -1,5 +1,7 @@
 package fr.alb.backend.service;
 
+import fr.alb.backend.exception.ResourceNotFoundException;
+
 import org.springframework.stereotype.Service;
 import fr.alb.backend.mapper.TeamMemberMapper;
 import fr.alb.backend.model.entity.TeamMember;
@@ -30,7 +32,7 @@ public class TeamMemberService {
 
     public TeamMemberResponse getById(Long id) {
         TeamMember teamMember = teamMemberRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Le membre de l'équipe n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Le membre de l'équipe n'a pas été trouvé"));
         return teamMemberMapper.toResponse(teamMember);
     }
 
@@ -49,7 +51,7 @@ public class TeamMemberService {
 
     public TeamMemberResponse update(Long id, UpdateTeamMemberRequest request) {
         TeamMember teamMember = teamMemberRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Le membre de l'équipe n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Le membre de l'équipe n'a pas été trouvé"));
         teamMemberMapper.updateEntity(request, teamMember); else {
             teamMember.setImage(null);
         }
@@ -59,7 +61,7 @@ public class TeamMemberService {
 
     public void delete(Long id) {
         TeamMember teamMember = teamMemberRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Le membre de l'équipe n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("Le membre de l'équipe n'a pas été trouvé"));
         teamMemberRepository.delete(teamMember);
     }
 }
