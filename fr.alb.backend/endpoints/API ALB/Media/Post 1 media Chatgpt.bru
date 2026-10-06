@@ -1,0 +1,21 @@
+meta {
+  name: Post 1 media Chatgpt
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/media/upload
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(C:\Users\raoul\Pictures\Screenshots\Capture d'écran 2026-04-29 153220.png) @contentType(image/png)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}
