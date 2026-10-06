@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import fr.alb.backend.dto.request.CreateTeamMemberRequest;
 import fr.alb.backend.dto.request.UpdateTeamMemberRequest;
 import fr.alb.backend.dto.response.TeamMemberResponse;
@@ -34,12 +36,12 @@ public class TeamMemberController {
     }
 
     @PostMapping
-    public TeamMemberResponse create(@RequestBody CreateTeamMemberRequest request) {
+    public TeamMemberResponse create(@Valid @RequestBody CreateTeamMemberRequest request) {
         return teamMemberService.create(request);
     }
 
     @PutMapping("/{id}")
-    public TeamMemberResponse update(@PathVariable Long id, @RequestBody UpdateTeamMemberRequest request) {
+    public TeamMemberResponse update(@PathVariable Long id, @Valid @RequestBody UpdateTeamMemberRequest request) {
         return teamMemberService.update(id, request);
     }
 
