@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.service.PageService;
 import fr.alb.backend.dto.request.CreatePageRequest;
@@ -34,12 +36,12 @@ public class PageController {
     }
 
     @PostMapping
-    public PageResponse create(@RequestBody CreatePageRequest request) {
+    public PageResponse create(@Valid @RequestBody CreatePageRequest request) {
         return pageService.create(request);
     }
 
     @PutMapping("/{id}")
-    public PageResponse update(@PathVariable Long id, @RequestBody UpdatePageRequest request) {
+    public PageResponse update(@PathVariable Long id, @Valid @RequestBody UpdatePageRequest request) {
         return pageService.update(id, request);
     }
 
