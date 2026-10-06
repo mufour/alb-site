@@ -1,5 +1,7 @@
 package fr.alb.backend.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UpdateBannerImageRequest {
     
+    @NotBlank(message = "Le titre est obligatoire.")
     private String title;
 
     private String description;
