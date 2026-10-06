@@ -45,7 +45,7 @@ public class NewsService {
     }
 
     public NewsResponse getBySubtitle(String subtitle) {
-        News news = newsRepository.findByTitle(subtitle)
+        News news = newsRepository.findBySubtitle(subtitle)
                 .orElseThrow(() -> new RuntimeException("La news n'a pas été trouvé"));
         return newsMapper.toResponse(news);
     }
