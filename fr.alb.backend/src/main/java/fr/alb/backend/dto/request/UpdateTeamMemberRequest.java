@@ -19,7 +19,5 @@ public class UpdateTeamMemberRequest {
 
     private String bio;
 
-    private Long imageId;
-
     private Integer displayOrder;
 }
