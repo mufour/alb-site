@@ -14,27 +14,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/media")
 public class MediaController {
-
     private final MediaService mediaService;
 
-    public MediaController(MediaService mediaService) {
-        this.mediaService = mediaService;
-    }
+    public MediaController(MediaService mediaService) { this.mediaService = mediaService; }
 
     @GetMapping
-    public List<MediaResponse> getAll() {
-        return mediaService.getAll();
-    }
+    public List<MediaResponse> getAll() { return mediaService.getAll(); }
 
     @GetMapping("/{id}")
-    public MediaResponse getById(@PathVariable Long id) {
-        return mediaService.getById(id);
-    }
+    public MediaResponse getById(@PathVariable Long id) { return mediaService.getById(id); }
 
     @GetMapping("/filename/{fileName}")
-    public MediaResponse getByFileName(@PathVariable String fileName) {
-        return mediaService.getByFileName(fileName);
-    }
+    public MediaResponse getByFileName(@PathVariable String fileName) { return mediaService.getByFileName(fileName); }
 
     @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<MediaResponse> upload(@RequestParam("file") MultipartFile file) {
@@ -53,7 +44,7 @@ public class MediaController {
         }
         return ResponseEntity.ok()
                 .contentType(mediaType)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename="" + media.getFileName() + """)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + media.getFileName() + "\"")
                 .body(resource);
     }
 
