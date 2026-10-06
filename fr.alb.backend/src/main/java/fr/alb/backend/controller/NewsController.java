@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.service.NewsService;
 import fr.alb.backend.dto.request.CreateNewsRequest;
@@ -39,12 +41,12 @@ public class NewsController {
     }
 
     @PostMapping
-    public NewsResponse create(@RequestBody CreateNewsRequest request) {
+    public NewsResponse create(@Valid @RequestBody CreateNewsRequest request) {
         return newsService.create(request);
     }
 
     @PutMapping("/{id}")
-    public NewsResponse update(@PathVariable Long id, @RequestBody UpdateNewsRequest request) {
+    public NewsResponse update(@PathVariable Long id, @Valid @RequestBody UpdateNewsRequest request) {
         return newsService.update(id, request);
     }
 

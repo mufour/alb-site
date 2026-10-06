@@ -34,10 +34,6 @@ public class TeamMemberMapper {
         response.setBio(teamMember.getBio());
         response.setDisplayOrder(teamMember.getDisplayOrder());
 
-        if (teamMember.getImage() != null) {
-            response.setImageId(teamMember.getImage().getId());
-        }
-
         return response;
     }
 

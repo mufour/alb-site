@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.service.BannerImageService;
 import fr.alb.backend.dto.request.CreateBannerImageRequest;
@@ -34,12 +36,12 @@ public class BannerImageController {
     }
 
     @PostMapping
-    public BannerImageResponse create(@RequestBody CreateBannerImageRequest request) {
+    public BannerImageResponse create(@Valid @RequestBody CreateBannerImageRequest request) {
         return bannerImageService.create(request);
     }
 
     @PutMapping("/{id}")
-    public BannerImageResponse update(@PathVariable Long id, @RequestBody UpdateBannerImageRequest request) {
+    public BannerImageResponse update(@PathVariable Long id, @Valid @RequestBody UpdateBannerImageRequest request) {
         return bannerImageService.update(id, request);
     }
 

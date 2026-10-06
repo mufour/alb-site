@@ -11,3 +11,6 @@ data/
 
 /vendor/
 /bin/
+
+# Uploaded media
+fr.alb.backend/uploads/

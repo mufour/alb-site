@@ -1,5 +1,7 @@
 package fr.alb.backend.service;
 
+import fr.alb.backend.exception.ResourceNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import fr.alb.backend.dto.request.CreatePageRequest;
@@ -35,13 +37,13 @@ public class PageService {
 
     public PageResponse getById(Long id) {
         Page page = pageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("La page n'a pas été trouvé"));
         return pageMapper.toResponse(page);
     }
 
     public PageResponse getBySlug(String slug) {
         Page page = pageRepository.findBySlug(slug)
-                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("La page n'a pas été trouvé"));
         return pageMapper.toResponse(page);
     }
 
@@ -49,7 +51,7 @@ public class PageService {
         Page page = pageMapper.toEntity(request);
          if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Le média n'a pas été trouvé"));
             page.setImage(media);
         }
         Page saved = pageRepository.save(page);
@@ -58,11 +60,11 @@ public class PageService {
 
     public PageResponse update(Long id, UpdatePageRequest request) {
         Page page = pageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("La page n'a pas été trouvé"));
         pageMapper.updateEntity(request, page);
          if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("Le média n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Le média n'a pas été trouvé"));
             page.setImage(media);
         } else {
             page.setImage(null);
@@ -73,7 +75,7 @@ public class PageService {
 
     public void delete(Long id) {
         Page page = pageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("La page n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("La page n'a pas été trouvé"));
         pageRepository.delete(page);
     }
 }

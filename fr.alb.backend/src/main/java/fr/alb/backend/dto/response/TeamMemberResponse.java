@@ -21,7 +21,5 @@ public class TeamMemberResponse {
 
     private String bio;
 
-    private Long imageId;
-
     private Integer displayOrder;
 }

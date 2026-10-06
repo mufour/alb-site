@@ -24,9 +24,5 @@ public class TeamMember extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String bio;
 
-    @ManyToOne
-    @JoinColumn(name = "image_id")
-    private Media image;
-
     private Integer displayOrder;
 }

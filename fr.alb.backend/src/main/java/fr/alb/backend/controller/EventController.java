@@ -1,5 +1,7 @@
 package fr.alb.backend.controller;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.dto.request.CreateEventRequest;
 import fr.alb.backend.dto.request.UpdateEventRequest;
@@ -34,12 +36,12 @@ public class EventController {
     }
 
     @PostMapping
-    public EventResponse create(@RequestBody CreateEventRequest request) {
+    public EventResponse create(@Valid @RequestBody CreateEventRequest request) {
         return eventService.create(request);
     }
 
     @PutMapping("/{id}")
-    public EventResponse update(@PathVariable Long id, @RequestBody UpdateEventRequest request) {
+    public EventResponse update(@PathVariable Long id, @Valid @RequestBody UpdateEventRequest request) {
         return eventService.update(id, request);
     }
 
