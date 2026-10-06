@@ -1,5 +1,7 @@
 package fr.alb.backend.service;
 
+import fr.alb.backend.exception.ResourceNotFoundException;
+
 import org.springframework.stereotype.Service;
 import fr.alb.backend.dto.request.CreateBannerImageRequest;
 import fr.alb.backend.dto.request.UpdateBannerImageRequest;
@@ -35,13 +37,13 @@ public class BannerImageService {
 
     public BannerImageResponse getById(Long id) {
         BannerImage bannerImage = bannerImageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouve"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouve"));
         return bannerImageMapper.toResponse(bannerImage);
     }
 
     public BannerImageResponse getByTitle(String title) {
         BannerImage bannerImage = bannerImageRepository.findByTitle(title)
-                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouve"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouve"));
         return bannerImageMapper.toResponse(bannerImage);
     }
 
@@ -49,7 +51,7 @@ public class BannerImageService {
         BannerImage bannerImage = bannerImageMapper.toEntity(request);
         if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouvé"));
             bannerImage.setImage(media);
         }
         BannerImage saved = bannerImageRepository.save(bannerImage);
@@ -58,11 +60,11 @@ public class BannerImageService {
 
     public BannerImageResponse update(Long id, UpdateBannerImageRequest request) {
         BannerImage bannerImage = bannerImageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouvé"));
         bannerImageMapper.updateEntity(request, bannerImage);
         if (request.getImageId() != null) {
             Media media = mediaRepository.findById(request.getImageId())
-                    .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+                    .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouvé"));
             bannerImage.setImage(media);
         } else {
             bannerImage.setImage(null);
@@ -73,7 +75,7 @@ public class BannerImageService {
 
     public void delete(Long id) {
         BannerImage bannerImage = bannerImageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("L'image n'a pas été trouvé"));
+                .orElseThrow(() -> new ResourceNotFoundException("L'image n'a pas été trouvé"));
         bannerImageRepository.delete(bannerImage);
     }
 }
