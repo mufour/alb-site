@@ -9,4 +9,5 @@ import java.util.List;
 public interface PartnerRepository extends JpaRepository<Partner, Long> {
 
     List<Partner> findByTypeOrderByDisplayOrderAsc(PartnerType type);
+    List<Partner> findAllByOrderByDisplayOrderAsc();
 }
