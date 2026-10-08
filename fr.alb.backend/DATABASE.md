@@ -45,3 +45,17 @@ Restart the Spring Boot app; the inserted rows remain in PostgreSQL. Flyway migr
 
 ## Scope
 The deferred TeamMember ↔ Media relation is intentionally **not** added to this migration. Add it later in a separate Flyway migration. Schema validation and an end-to-end run on the user's Windows Docker environment are still required before merging.
+
+
+## Manual verification report — 2026-10-08
+
+Executed by the project developer on Windows:
+- Docker PostgreSQL container started successfully and accepted connections.
+- DBeaver connected to `localhost:5433/alb_db`.
+- Spring Boot started successfully with the `postgres` profile; Flyway migration V1 executed.
+- All seven domain tables and `flyway_schema_history` were visible in DBeaver.
+- News POST and GET succeeded, with the inserted row visible in DBeaver.
+- After stopping and restarting Spring Boot, the same news row remained in DBeaver and was accessible from Bruno.
+- News PUT and DELETE succeeded; changes were verified in Bruno and DBeaver.
+
+Still pending: automated Maven test suite (`mvn clean verify`), review of Git working tree, and final pull-request review. Do not claim these have passed until run.
