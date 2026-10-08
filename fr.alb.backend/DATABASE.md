@@ -58,4 +58,6 @@ Executed by the project developer on Windows:
 - After stopping and restarting Spring Boot, the same news row remained in DBeaver and was accessible from Bruno.
 - News PUT and DELETE succeeded; changes were verified in Bruno and DBeaver.
 
-Still pending: automated Maven test suite (`mvn clean verify`), review of Git working tree, and final pull-request review. Do not claim these have passed until run.
+- Automated Maven verification: `mvn clean verify` completed with `BUILD SUCCESS` (reported by the developer on Windows).
+
+Still pending: review of local Git working tree and final pull-request review.
