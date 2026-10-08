@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: alb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: alb_db
+      POSTGRES_USER: alb_user
+      POSTGRES_PASSWORD: ${ALB_DB_PASSWORD:-alb_dev_password}
+    ports:
+      - "5433:5432"
+    volumes:
+      - alb_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alb_user -d alb_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  alb_postgres_data:
