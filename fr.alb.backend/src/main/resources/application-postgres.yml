@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: ${ALB_DB_URL:jdbc:postgresql://localhost:5433/alb_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${ALB_DB_USER:alb_user}
+    password: ${ALB_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  flyway:
+    enabled: true
+  h2:
+    console:
+      enabled: false

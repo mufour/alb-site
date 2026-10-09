@@ -14,3 +14,8 @@ data/
 
 # Uploaded media
 fr.alb.backend/uploads/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
