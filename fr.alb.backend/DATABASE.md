@@ -12,11 +12,20 @@ docker compose ps
 Docker downloads the `postgres:16-alpine` image on first run, creates the `alb-postgres` container and persistent named volume. PostgreSQL is exposed at localhost:5433 (container port 5432).
 
 ## Start API
+
+Create a local `.env` file from `.env.example` and configure the
+PostgreSQL connection variables.
+
+In Git Bash, run:
+
 ```bash
+set -a
+source .env
+set +a
 mvn spring-boot:run -Dspring-boot.run.profiles=postgres
 ```
 
-The `postgres` profile enables PostgreSQL, Flyway and Hibernate schema validation. The default profile remains H2 for existing development/tests. Flyway executes `V1__create_alb_schema.sql` on an empty database.
+The `.env` file must not be committed to Git.
 
 ## DBeaver connection
 - Type: PostgreSQL
@@ -24,7 +33,7 @@ The `postgres` profile enables PostgreSQL, Flyway and Hibernate schema validatio
 - Port: 5433
 - Database: alb_db
 - Username: alb_user
-- Password: alb_dev_password (local development default only)
+- Password: value configured in the local `.env` file
 - Test Connection, then Finish. Expand Schemas > public > Tables.
 
 ## Verify persistence
@@ -41,7 +50,7 @@ Restart the Spring Boot app; the inserted rows remain in PostgreSQL. Flyway migr
 `docker compose down -v` **irreversibly deletes local database data**.
 
 ## Configuration and security
-`ALB_DB_PASSWORD`, `ALB_DB_URL` and `ALB_DB_USER` can override local defaults. Do not use the example password in production or commit real secrets. If you change POSTGRES_PASSWORD after the volume was initialized, the existing database user's password does not automatically change. The `uploads/` directory stores uploaded files separately from PostgreSQL: back up both for complete restoration.
+`ALB_DB_URL` and `ALB_DB_USER` can override local defaults. Do not use the example password in production or commit real secrets. If you change POSTGRES_PASSWORD after the volume was initialized, the existing database user's password does not automatically change. The `uploads/` directory stores uploaded files separately from PostgreSQL: back up both for complete restoration.
 
 ## Scope
 The deferred TeamMember ↔ Media relation is intentionally **not** added to this migration. Add it later in a separate Flyway migration. Schema validation and an end-to-end run on the user's Windows Docker environment are still required before merging.

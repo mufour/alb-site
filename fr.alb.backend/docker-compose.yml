@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: alb_db
       POSTGRES_USER: alb_user
-      POSTGRES_PASSWORD: ${ALB_DB_PASSWORD:-alb_dev_password}
+      POSTGRES_PASSWORD: ${ALB_DB_PASSWORD:?ALB_DB_PASSWORD doit être défini}
     ports:
       - "5433:5432"
     volumes:
