@@ -33,8 +33,8 @@ public class ApiSecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Stateless API only; do not use browser cookies.
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-                        .requestMatchers(HttpMethod.HEAD, "/api/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/public/**").permitAll()
+                        .requestMatchers(HttpMethod.HEAD, "/api/public/**").permitAll()
                         .requestMatchers("/api/**").hasRole("ADMIN")
                         .anyRequest().denyAll())
                 .httpBasic(Customizer.withDefaults())
