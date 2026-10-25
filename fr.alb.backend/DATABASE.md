@@ -70,3 +70,30 @@ Executed by the project developer on Windows:
 - Automated Maven verification: `mvn clean verify` completed with `BUILD SUCCESS` (reported by the developer on Windows).
 
 Still pending: review of local Git working tree and final pull-request review.
+
+## Administration API security (development phase)
+
+The public website can read content with `GET /api/**` without authentication.
+All other `/api/**` methods require HTTP Basic authentication with an `ADMIN` account.
+The username defaults to `admin`; configure `ALB_ADMIN_USERNAME` and a strong
+`ALB_ADMIN_PASSWORD` in the local `.env` file (never commit it).
+If `ALB_ADMIN_PASSWORD` is missing, no admin account is provisioned and writes remain locked.
+
+Git Bash example before running Spring Boot:
+
+```bash
+set -a
+source .env
+set +a
+mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+```
+
+For Bruno write requests, choose Basic Auth and supply the configured username and password.
+Anonymous POST/PUT/DELETE requests should return HTTP 401; public GET requests remain accessible.
+Run `mvn clean verify` before merging.
+
+**Security scope:** HTTP Basic is a temporary solution for local API development only.
+Do not deploy this configuration as a production browser back-office: credentials require
+HTTPS in transit, and a browser-based administration area should use a dedicated login,
+secure session cookies, CSRF protection, and explicit CORS configuration. The existing
+H2 console is not accessible through the API security policy.
