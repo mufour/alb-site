@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(properties = "ALB_ADMIN_PASSWORD=test-only-secret")
+@SpringBootTest(properties = {"ALB_ADMIN_PASSWORD=test-only-secret", "spring.flyway.enabled=false", "spring.datasource.url=jdbc:h2:mem:albsecuritytest;DB_CLOSE_DELAY=-1"})
 @AutoConfigureMockMvc
 class ApiSecurityConfigTest {
 
