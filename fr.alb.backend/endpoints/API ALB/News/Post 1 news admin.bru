@@ -1,0 +1,31 @@
+meta {
+  name: Post 1 news admin
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/api/admin/news
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: 
+}
+
+body:json {
+  {
+    "title": "Test brouillon PR5",
+    "subtitle": "Actualité non publiée",
+    "content": "Cette actualité ne doit pas apparaître sur le site public.",
+    "imageId": null,
+    "published": false
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,23 +1,18 @@
 meta {
   name: Post 1 news
   type: http
-  seq: 2
+  seq: 1
 }
 
-post {
-  url: http://localhost:8080/api/news
+get {
+  url: http://localhost:8080/api/admin/news
   body: json
-  auth: inherit
+  auth: basic
 }
 
-body:json {
-  {
-    "title": "Nouveau site internet",
-    "subtitle": "Le site fait peau neuve",
-    "content": "Bienvenue sur la nouvelle version du site de l'Amicale Laïque de Bacalan.",
-    "imageId": null,
-    "published": true
-  }
+auth:basic {
+  username: admin
+  password: 
 }
 
 settings {
