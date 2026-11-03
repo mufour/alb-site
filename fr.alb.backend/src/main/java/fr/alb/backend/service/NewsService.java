@@ -13,6 +13,8 @@ import fr.alb.backend.dto.request.UpdateNewsRequest;
 import fr.alb.backend.dto.response.NewsResponse;
 
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class NewsService {
@@ -32,6 +34,10 @@ public class NewsService {
                 .stream()
                 .map(newsMapper::toResponse)
                 .toList();
+    }
+
+    public Page<NewsResponse> getPage(Pageable pageable) {
+        return newsRepository.findAll(pageable).map(newsMapper::toResponse);
     }
 
     public NewsResponse getById(Long id) {
