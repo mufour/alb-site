@@ -78,6 +78,13 @@ public class NewsService {
         return newsMapper.toResponse(saved);
     }
 
+    public NewsResponse setPublished(Long id, boolean published) {
+        News news = newsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("L’actualité n’a pas été trouvée."));
+        news.setPublished(published);
+        return newsMapper.toResponse(newsRepository.save(news));
+    }
+
     public void delete(Long id) {
         News news = newsRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("La news n'a pas été trouve"));

@@ -24,7 +24,27 @@ class ApiSecurityConfigTest {
 
     @Test
     void publicNewsReadDoesNotRequireCredentials() throws Exception {
-        mvc.perform(get("/api/news")).andExpect(status().isOk());
+        mvc.perform(get("/api/public/news")).andExpect(status().isOk());
+    }
+
+    @Test
+    void anonymousAdminNewsListIsRejected() throws Exception {
+        mvc.perform(get("/api/news")).andExpect(status().isUnauthorized());
+        mvc.perform(get("/api/admin/news")).andExpect(status().isUnauthorized());
+        mvc.perform(get("/api/news/1")).andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void authenticatedAdminCanReadNewsList() throws Exception {
+        mvc.perform(get("/api/admin/news")
+                .header("Authorization", basic("admin", "test-only-secret")))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void anonymousPublicationChangeIsRejected() throws Exception {
+        mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch("/api/admin/news/1/publish"))
+                .andExpect(status().isUnauthorized());
     }
 
     @Test

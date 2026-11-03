@@ -11,7 +11,7 @@ import fr.alb.backend.dto.response.NewsResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/news")
+@RequestMapping({"/api/news", "/api/admin/news"})
 public class NewsController {
 
     private final NewsService newsService;
@@ -48,6 +48,16 @@ public class NewsController {
     @PutMapping("/{id}")
     public NewsResponse update(@PathVariable Long id, @Valid @RequestBody UpdateNewsRequest request) {
         return newsService.update(id, request);
+    }
+
+    @PatchMapping("/{id}/publish")
+    public NewsResponse publish(@PathVariable Long id) {
+        return newsService.setPublished(id, true);
+    }
+
+    @PatchMapping("/{id}/unpublish")
+    public NewsResponse unpublish(@PathVariable Long id) {
+        return newsService.setPublished(id, false);
     }
 
     @DeleteMapping("/{id}")
