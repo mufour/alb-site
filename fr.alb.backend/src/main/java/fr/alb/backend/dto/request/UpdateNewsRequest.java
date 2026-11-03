@@ -2,6 +2,7 @@ package fr.alb.backend.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +25,7 @@ public class UpdateNewsRequest {
     @NotBlank(message = "Le contenu est obligatoire.")
     private String content;
 
+    @Positive(message = "L'identifiant de l'image doit être positif.")
     private Long imageId;
 
     private Boolean published = false;
