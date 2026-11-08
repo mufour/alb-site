@@ -1,6 +1,7 @@
 package fr.alb.backend.controller;
 
 import jakarta.validation.Valid;
+import fr.alb.backend.exception.BadRequestException;
 
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.service.NewsService;
@@ -9,6 +10,10 @@ import fr.alb.backend.dto.request.UpdateNewsRequest;
 import fr.alb.backend.dto.response.NewsResponse;
 
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Sort;
 
 @RestController
 @RequestMapping({"/api/news", "/api/admin/news"})
@@ -23,6 +28,16 @@ public class NewsController {
     @GetMapping
     public List<NewsResponse> getAll() {
         return newsService.getAll();
+    }
+
+    /** Paginated admin listing; legacy GET remains for existing Bruno clients. */
+    @GetMapping("/page")
+    public Page<NewsResponse> getPage(
+            @PageableDefault(size = 20, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) {
+        if (pageable.getPageSize() > 100) {
+            throw new BadRequestException("La taille de page maximale est 100.");
+        }
+        return newsService.getPage(pageable);
     }
 
     @GetMapping("/{id}")

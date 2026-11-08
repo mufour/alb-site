@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest(properties = {"ALB_ADMIN_PASSWORD=test-only-secret", "spring.flyway.enabled=false", "spring.datasource.url=jdbc:h2:mem:albsecuritytest;DB_CLOSE_DELAY=-1"})
 @AutoConfigureMockMvc
@@ -69,6 +70,26 @@ class ApiSecurityConfigTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{}"))
                 .andExpect(status().isBadRequest());
+    }
+
+
+    @Test
+    void oversizedAdminNewsPageReturnsStructuredBadRequest() throws Exception {
+        mvc.perform(get("/api/admin/news/page")
+                .param("page", "0")
+                .param("size", "101")
+                .header("Authorization", basic("admin", "test-only-secret")))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.message").value("La taille de page maximale est 100."));
+    }
+
+    @Test
+    void anonymousOversizedAdminNewsPageIsStillProtected() throws Exception {
+        mvc.perform(get("/api/admin/news/page")
+                .param("page", "0")
+                .param("size", "101"))
+                .andExpect(status().isUnauthorized());
     }
 
     private static String basic(String username, String password) {
