@@ -1,6 +1,7 @@
 package fr.alb.backend.controller;
 
 import jakarta.validation.Valid;
+import fr.alb.backend.exception.BadRequestException;
 
 import org.springframework.web.bind.annotation.*;
 import fr.alb.backend.service.NewsService;
@@ -34,8 +35,7 @@ public class NewsController {
     public Page<NewsResponse> getPage(
             @PageableDefault(size = 20, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable) {
         if (pageable.getPageSize() > 100) {
-            throw new org.springframework.web.server.ResponseStatusException(
-                    org.springframework.http.HttpStatus.BAD_REQUEST, "La taille de page maximale est 100.");
+            throw new BadRequestException("La taille de page maximale est 100.");
         }
         return newsService.getPage(pageable);
     }
